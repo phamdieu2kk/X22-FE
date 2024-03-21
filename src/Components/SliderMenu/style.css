@@ -1,0 +1,49 @@
+
+
+
+  .section-about {
+    margin-top: 30px;
+  }
+  
+  .title-slider img{
+     width: 100%;
+     height: 100%;
+   
+  }
+ 
+  .thumb-content-left {
+    padding: 20px 10px 10px 20px;
+    
+  }
+  
+  .thumb-content-left .title {
+    font-size: 50px;
+    font-family: 'Playball';
+    
+  }
+  
+  .thumb-content-left .title-slider {
+    text-align: justify;
+    display: block;
+   
+  }
+  
+  .about-link {
+    margin-top: 15px;
+    
+   }
+ 
+  .thumb-content-left .about-link a:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #e9a208;
+   
+  }
+  
+  .thumb-content-left .about-link a {
+    padding: 10px 15px;
+    border: 1px solid #000;
+    color: #000;
+    font-weight: 700;
+    
+  }

@@ -1,0 +1,74 @@
+.footerlist{
+    background-color:#13c779 ;
+    height: auto;
+    margin-top: 50px;
+}
+.footerlist .mid-footer{
+    color: #000;
+    padding: 50px 0;
+}
+.footerlist .mid-footer a img{
+    height: auto;
+    max-width: 100px;
+}
+.footerlist .mid-footer .logo-ft{
+    display: block;
+    margin-bottom: 10px;
+}
+.footerlist .mid-footer .content-ft {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.footerlist .mid-footer .title-menu{
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    color: #0c0800;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.footerlist .mid-footer .thanh-toan li {
+    display: inline-block;
+    margin-right: 15px;
+}
+.footerlist  .mid-footer .thanh-toan li img {
+    max-height: 30px;
+    width: auto;
+
+}
+.footerlist .mid-footer .list-menu {
+    width: 165px;
+}
+.footerlist .mid-footer .list-menu li {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+.footerlist .mid-footer .list-menu li a:hover {
+    font-size: 16px;
+    color: #0c0901;
+    text-decoration: none;
+    font-weight: 700;
+}
+.footerlist .mid-footer .list-menu li a {
+    font-size: 16px;
+    color: #000;
+}
+.footerlist .mid-footer .group-adress {
+    margin-top: 10px;
+}
+.footerlist .mid-footer .group-adress ul {
+    margin-bottom: 20px;
+    list-style: none;
+}
+.footerlist .mid-footer .group-adress ul li {
+    margin-bottom: 5px;
+    color: #0a0701;
+    font-size: 16px;
+    font-weight: 700;
+}
+.footerlist .mid-footer .group-adress ul li  span {
+    color: #000;
+    font-weight: 700;
+}
