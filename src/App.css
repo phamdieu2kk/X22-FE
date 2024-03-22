@@ -20,17 +20,7 @@
   
 
 
-  .form-user {
-     width: 364px;
-    padding: 20px;
-    background-color: #f3e7cd;
-  }
-
-.form-user .input-username {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  height: 40px;
-}
+  
 
 
 .content {
@@ -38,7 +28,7 @@
 }
 
   .section-danhmuc {
-    margin-top: 50px;
+    margin: auto;
 
 }
 
@@ -58,7 +48,7 @@
 
 
   .outstanding-detail {
-    margin-top: -20px;
+    margin: auto;
   
   }
   

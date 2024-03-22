@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "../Components/Slider";
 import FooterList from "../Components/FooterList";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
@@ -14,7 +14,7 @@ const Login = () => {
     const [errorUsername, setErrorUsername] = useState(false);
     const [errorPassword, setErrorPassword] = useState(false);
 
-    const [ setUser] = useState({
+    const [user, setUser] = useState({
         data: null,
         isLoading: false,
     });
@@ -85,12 +85,12 @@ const Login = () => {
                 <div className="container">
                     <div>
                         <h1 style={{ fontWeight: "700" }}>ĐĂNG NHẬP</h1>
-                        
                         <Input
                             className={`input-username ${
                                 errorUsername ? "error" : ""
                             }`}
                             placeholder="Tên đăng nhập"
+                            
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                         />

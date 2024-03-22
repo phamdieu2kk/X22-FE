@@ -56,14 +56,14 @@ const ResetPassword = () => {
                         <h1 style={{ fontWeight: "700" }}>Đặt lại mật khẩu</h1>
                         <form onSubmit={handleReset}>
                     <Input
-                            className="input-username"
-                            type="password"
-                            placeholder="Mật Khẩu Mới"
-                            required
-                            value={password}
-                            onChange={(e) =>
-                                setPassword( e.target.value )
-                            }/>
+                    className="input-username"
+                    type="password"
+                    placeholder="Mật Khẩu Mới"
+                    required
+                    value={password}
+                    onChange={(e) =>
+                        setPassword( e.target.value )
+                    }/>
                     <Input
                     className="input-username" 
                     type="password" 
@@ -76,6 +76,7 @@ const ResetPassword = () => {
                     className="btn-login"
                     type="primary"
                     onClick={handleReset}>
+                        
                         <span style={{ fontSize: "17px" }}>
                             Đặt lại mật khẩu {" "}
                             </span>

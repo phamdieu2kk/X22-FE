@@ -13,7 +13,7 @@ const Register = () => {
         username: "",
         password: "",
         email: "",
-        phone: "",
+        confirmPassword: "",
 
         // Thêm các trường dữ liệu khác tại đây
     });

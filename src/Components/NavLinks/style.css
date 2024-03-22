@@ -6,7 +6,6 @@
 .menu-container {
     display: flex;
     text-align: center;
-    
     align-items: center;
     position: absolute;
     padding: 10px 0 ;
@@ -33,8 +32,6 @@
 }
 
 
-
-
 .menu-content ul {
     list-style: none;
     display: flex;
@@ -58,17 +55,20 @@
     color: rgb(1, 0, 0) ;
    
 }
+
+/* css icon */
 .icon-login{
-    color: #0a0700 ;
-   
+    color: #050401 ;
+    display: flex;
 }
 
 
 .form-login{
-    width: 170px;
+    width:170px;
     background: #fdfafa;
     border: 1px solid #cd9b32;
    height: 78px;
+   margin: auto;
    
 }
 .link-login{
@@ -115,6 +115,15 @@
 }
 
 
+.form-user {
+    width: 364px;
+   padding: 20px;
+   background-color: #f1d495;
+ }
 
-
+.form-user .input-username {
+ margin-top: 10px;
+ margin-bottom: 10px;
+ height: 40px;
+}
 

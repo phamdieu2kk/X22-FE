@@ -37,7 +37,7 @@ const Products = () => {
         <div className="content">
           <section className="section-danhmuc">
             <div className="row">
-              <div className="col-12 swiper-flex">
+              <div className="col- swiper-flex">
                 <div className="col-xxl-2 col-lg-3 col-md-4 col-6">
                   <div className="outstanding-box">
                     <div className="outstanding-img">
