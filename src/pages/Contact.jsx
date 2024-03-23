@@ -7,20 +7,20 @@ import { Breadcrumb } from "antd";
 const Contact = () => {
   return (
     <>
-      <div>
+      {/* <div>
         <Slider />
-      </div>
+      </div> */}
 
       <div className="content">
-      <div className="title-home">
-          <Breadcrumb items={[{ title: 'Trang chủ' },{ title: 'Liên hệ ' }]} />
+        <div className="title-home">
+          <Breadcrumb items={[{ title: 'Trang chủ' }, { title: 'Liên hệ ' }]} />
         </div>
         <div className="layout-contact">
           <div className="container-contact">
             <div className="outlay">
               <div className="contact-information">
                 <div className="infor-contact">
-                 
+
                   <div className="form-contact">
                     <h4>Liên hệ với chúng tôi</h4>
                     <span className="content-form">
@@ -89,7 +89,7 @@ const Contact = () => {
                     </div>
                   </div>
                 </div>
-                
+
               </div>
             </div>
           </div>

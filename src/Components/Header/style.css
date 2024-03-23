@@ -1,0 +1,28 @@
+.header {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.nav-menu {
+    background: none;
+    width: 100%;
+}
+
+.nav-menu.nav-menu-right {
+    width: auto;
+}
+
+.nav-link.active {
+    text-decoration: none;
+    color: #039BE5 !important;
+}
+
+.nav-link:hover {
+    text-decoration: none !important;
+    color: #039BE5 !important;
+}

@@ -1,79 +1,79 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-  body {
-    color: #737373;
-    background: #fff;
-    font-size: 14px;
-    font-family: Helvetica Neue, sans-serif;
-    line-height: 1.42857143em;
-    overflow-wrap: break-word;
-    overflow-x: hidden;
-    word-wrap: break-word;
-    word-break: break-word;
-    padding: 0;
-    margin: 0
-  }
-  
+body {
+  color: #737373;
+  background: #fff url("https://trangnguyen.edu.vn/assets/images/bg-header.png") no-repeat top left;
+  font-size: 14px;
+  font-family: Helvetica Neue, sans-serif;
+  line-height: 1.42857143em;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  word-break: break-word;
+  padding: 0;
+  margin: 0
+}
 
 
-  
+
+
 
 
 .content {
- margin: auto;
+  margin: auto;
 }
 
-  .section-danhmuc {
-    margin: auto;
+.section-danhmuc {
+  margin: auto;
 
 }
 
 
 
-  .outstanding-box {
-    width: 460px;
-    height: auto;
-    text-align: center;
-  }
-  
-  .outstanding-img img {
-    width: 268px;
-  }
-  
- 
+.outstanding-box {
+  width: 460px;
+  height: auto;
+  text-align: center;
+}
+
+.outstanding-img img {
+  width: 268px;
+}
 
 
-  .outstanding-detail {
-    margin: auto;
-  
-  }
-  
-  .outstanding-detail h3 {
-    margin-top: 20px;
-    text-align: center;
-    padding: 5px 10px;
-    font-weight: 800;
-    font-family: 'Playball';
- 
-  }
 
- 
-  .outstanding-detail h3 a:hover {
-    color: #cd9b32;
-  }
-  
-  .outstanding-detail h3 a {
-    font-size: 20px;
-    text-decoration: none;
-    font-weight: 500;
-    font-family: 'Playball';
-    color: rgb(244, 13, 71);
-  }
-  
+
+.outstanding-detail {
+  margin: auto;
+
+}
+
+.outstanding-detail h3 {
+  margin-top: 20px;
+  text-align: center;
+  padding: 5px 10px;
+  font-weight: 800;
+  font-family: 'Playball';
+
+}
+
+
+.outstanding-detail h3 a:hover {
+  color: #cd9b32;
+}
+
+.outstanding-detail h3 a {
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: 'Playball';
+  color: rgb(244, 13, 71);
+}
+
 
 
 
@@ -86,10 +86,10 @@
 
 .title-flasale {
   font-size: 50px;
-  
+
   display: block;
   text-align: center;
-  
+
 }
 
 .title-flasale a {
@@ -101,61 +101,62 @@
 
 
 
-  .section-banner-1 {
-    margin-top: 50px;
-  }
-  
-  .thumb-image-banner {
-    position: relative;
-    overflow: hidden;
-    display: block;
-  }
+.section-banner-1 {
+  margin-top: 50px;
+}
 
-  
-
-  .section-banner-2 {
-    margin-top: 50px;
-  }
-  
- 
-  
-  .thumb-banner img {
-    width: 497px;
-    height: 354px;
-  }
-  
-  .banner-left {
-    margin-left: -28px;
-  }
-  .thumb-content {
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    transition: transform .25s ease, -webkit-transform .25s ease;
-    width: 100%;
-
-    text-align: center;
-   
-  }
-  
-  .thumb-content .title {
-    font-size: 50px;
-    color: #000;
-    letter-spacing: .1em;
-    font-family: 'Playball';
-  }
-  
-  .thumb-content p {
-    color: #000;
-    transition: .5s;
-    font-size: 16px;
-    font-weight: bold;
-  }
+.thumb-image-banner {
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
 
 
-  
-  
+
+.section-banner-2 {
+  margin-top: 50px;
+}
+
+
+
+.thumb-banner img {
+  width: 497px;
+  height: 354px;
+}
+
+.banner-left {
+  margin-left: -28px;
+}
+
+.thumb-content {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  transition: transform .25s ease, -webkit-transform .25s ease;
+  width: 100%;
+
+  text-align: center;
+
+}
+
+.thumb-content .title {
+  font-size: 50px;
+  color: #000;
+  letter-spacing: .1em;
+  font-family: 'Playball';
+}
+
+.thumb-content p {
+  color: #000;
+  transition: .5s;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+
+
 
 
 /* CSS Contact */
@@ -365,22 +366,4 @@
 }
 
 
-.content form-user{ 
- 
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.content form-user {}
