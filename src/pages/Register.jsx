@@ -27,7 +27,7 @@ const Register = () => {
                     email: user.email,
                     password: user.password,
                     username: user.username,
-                   
+
                 }
             );
 
@@ -36,7 +36,7 @@ const Register = () => {
                 username: "",
                 password: "",
                 email: "",
-               
+
 
                 // Đặt giá trị mặc định cho các trường dữ liệu khác tại đây
             });
@@ -51,9 +51,9 @@ const Register = () => {
 
     return (
         <>
-            <div>
+            {/* <div>
                 <Slider/>
-            </div>
+            </div> */}
             <div className="title-home">
                 <NavLink to={"/"} title="Trang chủ">
                     Trang chủ
@@ -93,7 +93,7 @@ const Register = () => {
                                 setUser({ ...user, email: e.target.value })
                             }
                         />
-                         <Input
+                        <Input
                             className="input-username"
                             type="password"
                             placeholder="Mật Khẩu"
@@ -103,7 +103,7 @@ const Register = () => {
                                 setUser({ ...user, password: e.target.value })
                             }
                         />
-                         <div className="terms">
+                        <div className="terms">
                             <input type="checkbox" id="checkbox" />
                             <label htmlFor="checkbox">
                                 Tôi đồng ý{" "}

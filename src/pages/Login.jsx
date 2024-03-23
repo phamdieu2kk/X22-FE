@@ -71,9 +71,9 @@ const Login = () => {
     };
     return (
         <>
-            <div>
+            {/* <div>
                 <Slider/>
-            </div>
+            </div> */}
             <div className="title-home">
                 <NavLink to={"/"} title="Trang chủ">
                     Trang chủ
@@ -86,18 +86,16 @@ const Login = () => {
                     <div>
                         <h1 style={{ fontWeight: "700" }}>ĐĂNG NHẬP</h1>
                         <Input
-                            className={`input-username ${
-                                errorUsername ? "error" : ""
-                            }`}
+                            className={`input-username ${errorUsername ? "error" : ""
+                                }`}
                             placeholder="Tên đăng nhập"
-                            
+
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                         />
                         <Input.Password
-                            className={`input-username ${
-                                errorPassword ? "error" : ""
-                            }`}
+                            className={`input-username ${errorPassword ? "error" : ""
+                                }`}
                             type="password"
                             placeholder="Mật khẩu"
                             value={password}
