@@ -27,7 +27,7 @@ const Register = () => {
                     email: user.email,
                     password: user.password,
                     username: user.username,
-                    confirmPassword: user.confirmPassword 
+                   
                 }
             );
 
@@ -36,7 +36,7 @@ const Register = () => {
                 username: "",
                 password: "",
                 email: "",
-                ConfirmPassword: "",
+               
 
                 // Đặt giá trị mặc định cho các trường dữ liệu khác tại đây
             });
@@ -103,19 +103,7 @@ const Register = () => {
                                 setUser({ ...user, password: e.target.value })
                             }
                         />
-                        <Input
-                            className="input-username"
-                            type="password"
-                            placeholder="Nhập Lại Mật Khẩu"
-                            required
-                            value={user.confirmPassword}
-                            onChange={(e) =>
-                                setUser({ ...user, confirmPassword: e.target.value })
-                            }
-                        />
-
-
-                        <div className="terms">
+                         <div className="terms">
                             <input type="checkbox" id="checkbox" />
                             <label htmlFor="checkbox">
                                 Tôi đồng ý{" "}
