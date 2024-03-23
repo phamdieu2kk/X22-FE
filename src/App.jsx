@@ -31,7 +31,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/challenges" element={<Challenges />} />
         <Route path="/account" element={<Account/>} />
-        <Route path="/resetPassword" element={<ResetPassword/>} />
+        <Route path="/reset-password" element={<ResetPassword/>} />
       </Routes>
     </BrowserRouter>
 
