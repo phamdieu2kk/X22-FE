@@ -10,8 +10,8 @@ const Home = () => {
     <>
       <div className="bodywrap">
         <div>
-          {/* <Slider />
-                <SliderMenu/> */}
+        
+                {/* <SliderMenu/> */}
         </div>
         <section className="section-news">
           <div className="container">

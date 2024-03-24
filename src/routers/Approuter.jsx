@@ -1,9 +1,8 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
 
+import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
-import About from "../pages/About";
-import Products from "../pages/Products";
+import Instruction from "../pages/Instruction";
+import Topic from "../pages/Topic";
 import Contact from "../pages/Contact";
 import Outstand from "../pages/Outstand";
 import Login from "../pages/Login";
@@ -16,8 +15,8 @@ import ResetPassword from "../Components/ResetPassword";
 export default function AppRouter() {
     return <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/instruction" element={<About />} />
-        <Route path="/topic" element={<Products />} />
+        <Route path="/instruction" element={<Instruction />} />
+        <Route path="/topic" element={<Topic />} />
         <Route path="/outstand" element={<Outstand />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />

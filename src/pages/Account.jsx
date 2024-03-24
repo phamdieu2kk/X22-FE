@@ -6,9 +6,9 @@ const Account = () => {
   return (
    
    <>
-   <div>
+   {/* <div>
     <Slider />
-    </div>
+    </div> */}
     <div className="content">
       <div className="title-home">
           

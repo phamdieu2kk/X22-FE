@@ -6,7 +6,7 @@ import {  NavLink } from "react-router-dom";
 const Challenges = () => {
   return (
     <div>
-   <Slider title={"Thử Thách"} />
+   {/* <Slider/> */}
   <div>
     <div className="title-home">
           <NavLink to={"/challenges"} title="Thử Thách">

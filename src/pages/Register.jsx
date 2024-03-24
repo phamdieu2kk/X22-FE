@@ -4,7 +4,7 @@ import FooterList from "../Components/FooterList";
 
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
-import { Breadcrumb, Button, Form, Input, Typography, notification } from "antd";
+import { Breadcrumb, Button,Checkbox, Form, Input, Typography, notification } from "antd";
 import axios from "axios";
 import api from "../api";
 
@@ -31,7 +31,7 @@ export default function Register() {
                 message: 'Thành công',
                 description: 'Đăng ký tài khoản thành công'
             });
-            // navigate('/login');
+            navigate('/login');
         } catch (error) {
             console.dir(error);
             notify.error({
@@ -44,7 +44,8 @@ export default function Register() {
 
     return <div className="register-page">
         {notifyContextHolder}
-        <Breadcrumb items={[{ title: <Link to="/">Trang chủ</Link> }, { title: 'Đăng ký' }]} separator=">" />
+{/*        
+        <Breadcrumb items={[{ title: <Link to="/">Trang chủ</Link> }, { title: 'Đăng ký' }]} separator=">" /> */}
 
         <Form
             form={registerForm}
@@ -108,8 +109,18 @@ export default function Register() {
                 <Input.Password maxLength={100} />
             </Form.Item>
 
+            <Form.Item name="remember" valuePropName="checked" noStyle>
+          <Checkbox>Tôi đồng ý  <a href="/instruction"> Điều khoản và điều kiện</a></Checkbox>
+        </Form.Item>
+        <Form.Item>
             <Button type="primary" htmlType="submit" className="auth-button">Đăng ký</Button>
+            <div className="member">
+                            Bạn đã có tài khoản{" "}
+                            <Link to="/login"> Đăng nhập </Link> tại đây ?
+                        </div>
+                        </Form.Item>
         </Form>
+        <FooterList />
     </div>
 }
 

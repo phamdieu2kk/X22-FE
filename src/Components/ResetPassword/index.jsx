@@ -2,7 +2,7 @@
 import Slider from "../Slider";
 import FooterList from "../FooterList";
 import { NavLink , useNavigate } from "react-router-dom";
-import {Button,   Input } from "antd";
+import { Breadcrumb, Button, Form, Input, Typography, notification } from "antd";
 import { useState } from 'react';
 import axios from "axios";
 
@@ -38,7 +38,7 @@ const ResetPassword = () => {
     return (
         <>
         <div>
-            <Slider/>
+            {/* <Slider/> */}
              <div>
              <div className="title-home">
                     <NavLink to={"/login"} title="đặt lại mật khẩu">
@@ -50,10 +50,10 @@ const ResetPassword = () => {
             </div>
 
 
-            <div className="content form-user">
-                <div className="container">
+            <div className="register-page">
+                
                     <div>
-                        <h1 style={{ fontWeight: "700" }}>Đặt lại mật khẩu</h1>
+                    <Typography.Title style={{ textAlign: 'center' }}>Quên mật khẩu </Typography.Title>
                         <form onSubmit={handleReset}>
                     <Input
                     className="input-username"
@@ -85,7 +85,7 @@ const ResetPassword = () => {
                             </div>
                             </div>
                             </div>
-                            </div>
+                          
                              <FooterList />
                              </>
                               )

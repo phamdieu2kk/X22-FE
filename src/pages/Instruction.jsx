@@ -8,6 +8,7 @@ const About = () => {
       {/* <div>
         <Slider />
       </div> */}
+       
       <div className="content">
         <div className="title-home">
           <Breadcrumb items={[{ title: 'Trang chủ' }, { title: 'Hướng dẫn' }]} />
@@ -15,6 +16,7 @@ const About = () => {
         <h2> Hướng Dẫn Trò Chơi</h2>
       </div>
       <FooterList />
+      
     </>
   );
 };

@@ -9,13 +9,14 @@ const mainMenuItems = [
         key: 'home',
     },
     {
-        label: <NavLink className="nav-link" to="/instruction">Hướng dẫn</NavLink>,
-        key: 'instruction',
-    },
-    {
         label: <NavLink className="nav-link" to="/topic">Chủ đề</NavLink>,
         key: 'topic',
     },
+    {
+        label: <NavLink className="nav-link" to="/instruction">Hướng dẫn</NavLink>,
+        key: 'instruction',
+    },
+    
     {
         label: <NavLink className="nav-link" to="/contact">Liên hệ</NavLink>,
         key: 'contact',
@@ -34,7 +35,7 @@ const mainAuthItems = [
 ];
 
 export default function Header() {
-
+   
     return <Row className="header">
         <Col sm={8}>
             <Menu
@@ -62,4 +63,5 @@ export default function Header() {
             </Flex>
         </Col>
     </Row>;
+    
 }

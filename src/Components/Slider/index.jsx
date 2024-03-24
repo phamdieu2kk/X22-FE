@@ -11,8 +11,7 @@ const Slider = ({title}) => {
           
         </div>
        
-           <div className="title-bread-crumb">{title}</div>
-             
+            
            
         
       </section>
