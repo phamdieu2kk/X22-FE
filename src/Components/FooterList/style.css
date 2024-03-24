@@ -1,10 +1,11 @@
 .footerlist{
-    background-color:#13c779 ;
+    background: #fff url("https://trangnguyentiengviet.vn/assets/images/bg-foot.jpg") ;
     height: auto;
     margin-top: 50px;
+    
 }
 .footerlist .mid-footer{
-    color: #000;
+    color: #fdfdfd;
     padding: 50px 0;
 }
 .footerlist .mid-footer a img{
@@ -24,7 +25,7 @@
     font-size: 18px;
     margin-bottom: 20px;
     position: relative;
-    color: #0c0800;
+    color: #ffffff;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -47,13 +48,13 @@
 }
 .footerlist .mid-footer .list-menu li a:hover {
     font-size: 16px;
-    color: #0c0901;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 700;
 }
 .footerlist .mid-footer .list-menu li a {
     font-size: 16px;
-    color: #000;
+    color: #ffffff;
 }
 .footerlist .mid-footer .group-adress {
     margin-top: 10px;
@@ -64,11 +65,15 @@
 }
 .footerlist .mid-footer .group-adress ul li {
     margin-bottom: 5px;
-    color: #0a0701;
+    color: #ffffff;
     font-size: 16px;
     font-weight: 700;
 }
 .footerlist .mid-footer .group-adress ul li  span {
-    color: #000;
+    color: #ffffff;
     font-weight: 700;
 }
+
+
+
+

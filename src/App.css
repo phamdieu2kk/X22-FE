@@ -5,28 +5,45 @@
 }
 
 body {
-  color: #737373;
-  background: #fff url("https://trangnguyen.edu.vn/assets/images/bg-header.png") no-repeat top left;
+  color: #7f7c7c;
+  background: #ffffff url("https://trangnguyentiengviet.vn/assets/images/bg-pattern2.png")  ;
   font-size: 14px;
   font-family: Helvetica Neue, sans-serif;
-  line-height: 1.42857143em;
-  overflow-wrap: break-word;
-  overflow-x: hidden;
-  word-wrap: break-word;
-  word-break: break-word;
   padding: 0;
-  margin: 0
+  margin: 0;
+  border-radius: 10px;
+  
 }
 
 .auth-form {
   width: 40%;
-  min-width: 300px;
-  background: #fff;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  min-width: 400px;
+  background: #ffffff url("https://trangnguyen.edu.vn/assets/images/bg-login-box.svg") no-repeat top left ;
+  border-radius: 10px;
+  box-shadow: #ffffff ;
+  border: 5px solid #fcf6f6;
   padding: 40px;
-  margin: 30px auto;
+  margin: 40px auto;
+  
 }
+
+
+.login-form-forgot {
+  float: right;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -169,126 +186,15 @@ body {
 
 /* CSS Contact */
 
-
 .layout-contact {
-  margin-bottom: 30px
+  margin: auto;
 }
 
-.layout-contact .contact {
-  margin-bottom: 20px;
-  border-radius: 5px;
-  padding: 10px;
-  background: #f3e7cd
-}
-
-.layout-contact .contact h4 {
-  margin-bottom: 15px;
-  position: relative;
-  font-size: 24px;
-  font-weight: 700;
-  color: #cd9b32;
-  display: inline-block
-}
-
-.layout-contact .contact h4 img {
-  height: 25px;
-  position: absolute;
-  left: 100%;
-  top: -2px
-}
-
-.layout-contact .contact .info-contact {
-  padding: 5px;
-  border-radius: 0 0 10px 10px
-}
-
-.layout-contact .contact .info-contact .description {
-  margin-top: 10px
-}
-
-.layout-contact .contact .info-contact .group-address {
-  margin-top: 10px
-}
-
-.layout-contact .contact .info-contact .group-address .title {
-  font-size: 17px;
-  font-weight: 700;
-  margin-bottom: 10px
-}
-
-.layout-contact .contact .info-contact .group-address ul {
-  list-style: none;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap
-}
-
-.layout-contact .contact .info-contact .group-address ul li {
-  margin-bottom: 15px;
-  display: inline-block;
-  position: relative;
-  width: 100%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
-  max-width: 50%;
-  display: flex;
-  align-items: center
-}
-
-@media (max-width: 767px) {
-  .layout-contact .contact .info-contact .group-address ul li {
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    max-width: 100%
-  }
-}
-
-.layout-contact .contact .info-contact .group-address ul li .icon {
-  width: 40px;
-  min-width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #cd9b32;
-  border-radius: 50%;
-  margin-right: 10px
-}
-
-.layout-contact .contact .info-contact .group-address ul li .icon svg path {
-  fill: #cd9b32
-}
-
-.layout-contact .contact .info-contact .group-address ul li b {
-  display: block
-}
-
-.layout-contact .contact .info-contact .group-address ul li a {
-  color: #000
-}
-
-.layout-contact .contact .info-contact .group-address ul li a:hover {
-  color: #cd9b32
-}
-
-.layout-contact .contact .info-contact .group-address .see-store {
-  color: #fff;
-  background-color: #cd9b32;
-  line-height: 38px;
-  padding: 10px 15px;
-  font-size: 14px;
-  border-radius: 5px
-}
-
-.layout-contact .contact .info-contact .group-address .see-store:hover {
-  background-color: #e4a53d
-}
 
 .layout-contact .form-contact {
   border-radius: 5px;
   padding: 10px;
-  background: #f3e7cd
+  background: #f4ddad
 }
 
 @media (max-width: 991px) {
@@ -357,6 +263,7 @@ body {
 .layout-contact .form-contact .group_contact .btn-lienhe:hover {
   background-color: #e4a53d
 }
+
 
 
 

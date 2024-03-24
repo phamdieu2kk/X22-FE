@@ -1,5 +1,9 @@
+
 .header {
     background: rgba(255, 255, 255, 0.8);
+    background: #fff url("https://trangnguyentiengviet.vn/assets/images/bg-foot.jpg") no-repeat top left;
+    width: 100%;
+    
 }
 
 .brand-logo {
@@ -11,6 +15,8 @@
 .nav-menu {
     background: none;
     width: 100%;
+    color: rgb(246, 236, 236);
+
 }
 
 .nav-menu.nav-menu-right {
@@ -19,10 +25,10 @@
 
 .nav-link.active {
     text-decoration: none;
-    color: #039BE5 !important;
+    color: #000000 !important;
 }
 
 .nav-link:hover {
     text-decoration: none !important;
-    color: #039BE5 !important;
+    color: #090600 !important;
 }

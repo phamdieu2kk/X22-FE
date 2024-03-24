@@ -13,7 +13,7 @@ const Contact = () => {
 
       <div className="content">
         <div className="title-home">
-          <Breadcrumb items={[{ title: 'Trang chủ' }, { title: 'Liên hệ ' }]} />
+          {/* <Breadcrumb items={[{ title: 'Trang chủ' }, { title: 'Liên hệ ' }]} /> */}
         </div>
         <div className="layout-contact">
           <div className="container-contact">

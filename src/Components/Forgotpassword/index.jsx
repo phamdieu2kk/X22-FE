@@ -1,7 +1,7 @@
 import Slider from "../Slider";
 import FooterList from "../FooterList";
 import { NavLink, useNavigate } from "react-router-dom";
-import { Button, Input } from "antd";
+import { Breadcrumb, Button, Form, Input, Typography, notification } from "antd";
 import { useState } from "react";
 import axios from "axios";
 
@@ -17,7 +17,7 @@ const Forgotpassword = () => {
             );
             const data = response.data;
             alert(data?.message);
-            navigate("/resetpassword");
+            navigate("/reset-password");
         } catch (error) {
             alert(error.response?.data?.message ?? error.response?.data);
         }
@@ -25,7 +25,7 @@ const Forgotpassword = () => {
 
     return (
         <div>
-            <Slider title={"Quên Mật Khẩu"} />
+            {/* <Slider /> */}
             <div>
                 <div className="title-home">
                     <NavLink to={"/login"} title="Đăng Nhập">
@@ -36,33 +36,27 @@ const Forgotpassword = () => {
                 </div>
             </div>
 
-            <div className="content form-user">
-                <div className="container">
+            <div className="register-page">
+               
                     <div>
-                        <h1 style={{ fontWeight: "700" }}>Quên mật khẩu </h1>
+                    <Typography.Title style={{ textAlign: 'center' }}>Quên mật khẩu </Typography.Title>
 
-                        <form>
-                            <Input
-                                className="input-email"
-                                type="email"
-                                placeholder="Email"
-                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                                onChange={(e) => setEmail(e.target.value)}
-                                value={email}
-                            />
-                            <Button
-                                className="btn-login"
-                                type="primary"
-                                onClick={handleSubmit}
-                            >
-                                <span style={{ fontSize: "17px" }}>
-                                    Lấy lại mật khẩu{" "}
-                                </span>
-                            </Button>
-                        </form>
+                    <Form.Item
+                label="Email"
+                name="email"
+                rules={[
+                    { required: true, message: 'Email bắt buộc nhập' },
+                    { type: "email", message: 'Email không đúng đúng định dạng' },
+                ]}
+            >
+                <Input maxLength={256} />
+            </Form.Item>
+            
+            <Button type="primary" htmlType="submit" className="auth-button"  onClick={handleSubmit}>Lấy lại mật khẩu</Button>
+                       
                     </div>
                 </div>
-            </div>
+            
 
             <FooterList />
         </div>
