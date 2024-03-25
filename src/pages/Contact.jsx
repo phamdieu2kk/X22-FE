@@ -1,12 +1,14 @@
 
-import { Link } from "react-router-dom";
+
 import FooterList from "../Components/FooterList";
 import { Breadcrumb } from "antd";
+import { Link } from "react-router-dom";
 
 
 const Contact = () => {
   return (
     <>
+    
       <div className="content">
         <div className="title-home">
           <Breadcrumb items={[{ title: <Link to="/">Trang chủ</Link>}, { title: 'Liên hệ ' }]} />
@@ -16,7 +18,7 @@ const Contact = () => {
             <div className="outlay">
               <div className="contact-information">
                 <div className="infor-contact">
-
+               
                   <div className="form-contact">
                     <h4>Liên hệ với chúng tôi</h4>
                     <span className="content-form">
