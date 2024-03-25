@@ -5,12 +5,10 @@
 }
 
 body {
-  color: #7f7c7c;
+  color: #000000;
   background: #ffffff url("https://trangnguyentiengviet.vn/assets/images/bg-pattern2.png")  ;
   font-size: 14px;
-  font-family: Helvetica Neue, sans-serif;
-  padding: 0;
-  margin: 0;
+  font-family: 'Quicksand', sans-serif;
   border-radius: 10px;
   
 }
@@ -19,14 +17,15 @@ body {
 .auth-form {
   width: 40%;
   min-width: 400px;
-  background: #ffffff url("https://trangnguyen.edu.vn/assets/images/bg-login-box.svg") no-repeat top left ;
+  background: #f4eded url("https://trangnguyen.edu.vn/assets/images/bg-login-box.svg") no-repeat top left ;
   border-radius: 10px;
   box-shadow: 10px 10px 5px lightblue ;
-  border: 5px solid #f4cccc;
-  padding: 40px;
+  border: 5px solid #f7d1d1;
+  padding: 30px ;
   margin: 40px auto;
   
 }
+
 
 
 .auth-button{
@@ -36,18 +35,14 @@ body {
 }
 
 
-.member {
-  margin: auto;
-}
-
 .login-form-forgot {
   float: right;
- 
+  margin-top: 10px;
 }
 
 
 .title-home {
-  margin: 15px;
+  margin: 25px;
 }
 
 .title-home span {

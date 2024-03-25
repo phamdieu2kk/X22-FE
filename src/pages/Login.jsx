@@ -1,6 +1,6 @@
 
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import Slider from "../Components/Slider";
+
 import { Breadcrumb, Button,Checkbox, Form, Input, Typography, notification } from "antd";
 import FooterList from "../Components/FooterList";
 
@@ -81,17 +81,14 @@ export default function Login() {
       <Form.Item>
         <Button type="primary" htmlType="submit" className="auth-button">Đăng nhập </Button>
         <div className="member">Bạn chưa có tài khoản{" "}
-                            <NavLink type="primary" to={"/register"}>
-                               <span>Đăng ký</span>
-                           </NavLink>{" "}
-                           tại đây{" "}
-                       </div>
-                       </Form.Item>
-    </Form>
-
-    <FooterList />
-</div>
-}
+        <Link to="/register"> Đăng ký </Link>
+         tại đây ?
+          </div>
+        </Form.Item>
+        </Form>
+        <FooterList />
+        </div>
+        }
 
 
 

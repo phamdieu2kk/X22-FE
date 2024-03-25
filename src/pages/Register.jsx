@@ -1,11 +1,7 @@
-import { useState } from "react";
-import Slider from "../Components/Slider";
+
 import FooterList from "../Components/FooterList";
-
-import { Link, NavLink, useNavigate } from "react-router-dom";
-
-import { Breadcrumb, Button,Checkbox, Form, Input, Typography, notification } from "antd";
-import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { Button,Checkbox, Form, Input, Typography, notification } from "antd";
 import api from "../api";
 
 export default function Register() {
@@ -67,7 +63,7 @@ export default function Register() {
             </Form.Item>
 
             <Form.Item
-                label="Tên đăng ký"
+                label="Tên đăng nhập"
                 name="username"
                 rules={[
                     { required: true, message: 'Tên đăng ký bắt buộc nhập', whitespace: true },
