@@ -1,5 +1,5 @@
 
-import Slider from "../Components/Slider";
+import { Link } from "react-router-dom";
 import FooterList from "../Components/FooterList";
 import { Breadcrumb } from "antd";
 
@@ -7,13 +7,9 @@ import { Breadcrumb } from "antd";
 const Contact = () => {
   return (
     <>
-      {/* <div>
-        <Slider />
-      </div> */}
-
       <div className="content">
         <div className="title-home">
-          {/* <Breadcrumb items={[{ title: 'Trang chủ' }, { title: 'Liên hệ ' }]} /> */}
+          <Breadcrumb items={[{ title: <Link to="/">Trang chủ</Link>}, { title: 'Liên hệ ' }]} />
         </div>
         <div className="layout-contact">
           <div className="container-contact">

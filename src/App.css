@@ -20,8 +20,8 @@ body {
   min-width: 400px;
   background: #ffffff url("https://trangnguyen.edu.vn/assets/images/bg-login-box.svg") no-repeat top left ;
   border-radius: 10px;
-  box-shadow: #ffffff ;
-  border: 5px solid #fcf6f6;
+
+  border: 5px solid #f4cccc;
   padding: 40px;
   margin: 40px auto;
   
@@ -34,17 +34,14 @@ body {
 }
 
 
+.title-home {
+  margin: 15px;
+}
 
-
-
-
-
-
-
-
-
-
-
+.title-home span {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
 
 
@@ -271,14 +268,4 @@ body {
 
 
 
-.title-home {
-  margin: 15px;
-}
 
-.title-home span {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-
-.content form-user {}
