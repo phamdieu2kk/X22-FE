@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-import Slider from "../Components/Slider";
 import FooterList from "../Components/FooterList";
-
 import "../Components/Products/style.css";
-
-
 import { Breadcrumb } from "antd";
+import { Link } from "react-router-dom";
+
 const Products = () => {
   const [products, setProducts] = useState({
     data: null,
@@ -27,11 +24,11 @@ const Products = () => {
   console.log(data);
   return (
     <>
-
-      {/* <Slider/> */}
       <div className="content">
         <div className="title-home">
-          <Breadcrumb items={[{ title: 'Trang chủ' }, { title: 'Tất cả chủ đề' }]} />
+                 
+        
+          <Breadcrumb items={[{ title:<Link to="/">Trang chủ</Link>}, { title: 'Tất cả chủ đề' }]} />
         </div>
       </div>
       <div className="content">

@@ -2,7 +2,7 @@
 import "./style.css"
 
 
-const Slider = ({title}) => {
+const Slider = () => {
   return (
     <div>
       <section className="section-slider">

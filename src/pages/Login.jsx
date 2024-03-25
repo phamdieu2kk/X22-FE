@@ -53,8 +53,6 @@ export default function Login() {
 
         <Typography.Title style={{ textAlign: 'center' }}>Đăng Nhập </Typography.Title>
 
-       
-
         <Form.Item
             label="Tên đăng nhập"
             name="username"
@@ -77,10 +75,7 @@ export default function Login() {
         </Form.Item>
 
         <Form.Item>
-        
-
-        <a className="login-form-forgot" href="/forgotpassword">
-          Quên mật khẩu
+            <a className="login-form-forgot" href="/forgotpassword">Quên mật khẩu
         </a>
       </Form.Item>
       <Form.Item>

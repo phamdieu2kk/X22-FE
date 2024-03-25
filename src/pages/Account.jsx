@@ -1,18 +1,15 @@
-import Slider from "../Components/Slider";
+
 import FooterList from "../Components/FooterList";
 import { Breadcrumb } from "antd";
-
+import { Link} from "react-router-dom";
 const Account = () => {
   return (
    
    <>
-   {/* <div>
-    <Slider />
-    </div> */}
     <div className="content">
       <div className="title-home">
           
-         <Breadcrumb items={[{ title: 'Trang chủ' },{ title: 'Tài Khoản' }]} /> 
+         <Breadcrumb items={[{ title: <Link to="/">Trang chủ</Link> },{ title: 'Tài Khoản' }]} /> 
         </div>
 
         <div className="container mt-5">

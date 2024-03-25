@@ -1,5 +1,5 @@
 
-import Slider from "../Components/Slider";
+
 import FooterList from "../Components/FooterList";
 import SliderMenu from "../Components/SliderMenu";
 
@@ -10,8 +10,7 @@ const Home = () => {
     <>
       <div className="bodywrap">
         <div>
-        
-                {/* <SliderMenu/> */}
+        {/* <SliderMenu/> */}
         </div>
         <section className="section-news">
           <div className="container">
