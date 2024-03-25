@@ -2,7 +2,7 @@
     background: #fff url("https://trangnguyentiengviet.vn/assets/images/bg-foot.jpg") ;
     height: auto;
     margin-top: 50px;
-    
+   
 }
 .footerlist .mid-footer{
     color: #fdfdfd;
@@ -25,13 +25,14 @@
     font-size: 18px;
     margin-bottom: 20px;
     position: relative;
-    color: #ffffff;
+    color: #f5d612;
     font-weight: 700;
     text-transform: uppercase;
 }
 .footerlist .mid-footer .thanh-toan li {
     display: inline-block;
     margin-right: 15px;
+    
 }
 .footerlist  .mid-footer .thanh-toan li img {
     max-height: 30px;
@@ -40,38 +41,46 @@
 }
 .footerlist .mid-footer .list-menu {
     width: 165px;
+    
 }
 .footerlist .mid-footer .list-menu li {
     display: block;
     margin-bottom: 20px;
     font-weight: 700;
+    
 }
 .footerlist .mid-footer .list-menu li a:hover {
     font-size: 16px;
     color: #ffffff;
     text-decoration: none;
     font-weight: 700;
+    
 }
 .footerlist .mid-footer .list-menu li a {
     font-size: 16px;
     color: #ffffff;
+    
 }
 .footerlist .mid-footer .group-adress {
     margin-top: 10px;
+    
 }
 .footerlist .mid-footer .group-adress ul {
     margin-bottom: 20px;
     list-style: none;
+    
 }
 .footerlist .mid-footer .group-adress ul li {
     margin-bottom: 5px;
     color: #ffffff;
     font-size: 16px;
     font-weight: 700;
+    
 }
 .footerlist .mid-footer .group-adress ul li  span {
     color: #ffffff;
     font-weight: 700;
+    
 }
 
 

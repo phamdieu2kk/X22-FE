@@ -9,9 +9,7 @@ const FooterList = () => {
           <div className="container">
             <div className="row">
               <div className="col-12 col-md-12 col-lg-4 ft-info col-footer">
-                <a className="logo-ft" href="/" title="logo">
-                  <img src="https://play-lh.googleusercontent.com/aQnBEKmZOk2X38pyZtAA6wmoxgGIk9cyn5YXHp5RqM308prUE0S_LZMekH21k_PUvgs=w240-h480-rw" />
-                </a>
+              <h2 className="title-menu title-menu2">Web game</h2>
                 <div className="content-ft">
                 Hãy đến với WEB GAME và hãy trãi nghiệm  những câu đố tuyệt vời của
                   chúng tôi làm cho bạn thêm nhiều kiến thức mới
@@ -23,7 +21,7 @@ const FooterList = () => {
               <div className="col-12 col-md-6 col-lg-2 link-list col-footer">
                 <h4 className="title-menu title-menu2">Chính sách</h4>
                 <ul className="list-menu">
-                  <li>
+                <li>
                     <a href="#" title="Chính sách thành viên">
                       Chính sách thành viên
                     </a>
