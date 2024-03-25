@@ -1,7 +1,7 @@
 
 import FooterList from "../FooterList";
-import { NavLink, useNavigate } from "react-router-dom";
-import { Breadcrumb, Button, Form, Input, Typography, notification } from "antd";
+import {  useNavigate } from "react-router-dom";
+import {  Button, Form, Input, Typography, notification } from "antd";
 import { useState } from "react";
 import axios from "axios";
 
@@ -25,13 +25,12 @@ const Forgotpassword = () => {
 
     return (
         <div className="register-page">
-            <div className="auth-form">
+            <Form className="auth-form">
             <Typography.Title style={{ textAlign: 'center', color:"" }}>Quên mật khẩu </Typography.Title>
 
             <Form.Item
                 label="Email"
                 name="email"
-                value ={email}
                 onChange={(e) => setEmail(e.target.value)}
                 rules={[
                     { required: true, message: 'Email bắt buộc nhập' },
@@ -42,8 +41,8 @@ const Forgotpassword = () => {
             </Form.Item>
             
             <Button type="primary" htmlType="submit" className="auth-button"  onClick={handleForgotpasswordForm}>Lấy lại mật khẩu</Button>
-                       
-                    </div>
+            
+             </Form>
               
             
 

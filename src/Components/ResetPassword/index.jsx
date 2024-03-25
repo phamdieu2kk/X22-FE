@@ -48,9 +48,9 @@ const ResetPassword = () => {
     return (
         <>
          <div className="register-page">
-            <div className="auth-form">
+            <Form className="auth-form">
                 <Typography.Title style={{ textAlign: 'center' }}>Đặt lại mật khẩu </Typography.Title>
-                        <form onSubmit={handleResetPasswordForm}>
+                       
                         <Form.Item
                 label="Mật khẩu"
                 name="password"
@@ -79,12 +79,10 @@ const ResetPassword = () => {
             <Button type="primary" htmlType="submit" className="auth-button">Đặt lại mật khẩu</Button>
            
                       
-                            </form>
+                           
+                            </Form>
                             </div>
-                            </div>
-                          
-                          
-                             <FooterList />
+                            <FooterList />
                              </>
                               )
                             }
