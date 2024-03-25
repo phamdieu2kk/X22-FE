@@ -31,8 +31,7 @@ const Forgotpassword = () => {
             <Form.Item
                 label="Email"
                 name="email"
-                value ={email}
-                onChange={(e) => setEmail(e.target.value)}
+                
                 rules={[
                     { required: true, message: 'Email bắt buộc nhập' },
                     { type: "email", message: 'Email không đúng đúng định dạng' },

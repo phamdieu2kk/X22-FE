@@ -15,12 +15,13 @@ body {
   
 }
 
+
 .auth-form {
   width: 40%;
   min-width: 400px;
   background: #ffffff url("https://trangnguyen.edu.vn/assets/images/bg-login-box.svg") no-repeat top left ;
   border-radius: 10px;
-
+  box-shadow: 10px 10px 5px lightblue ;
   border: 5px solid #f4cccc;
   padding: 40px;
   margin: 40px auto;
@@ -28,9 +29,20 @@ body {
 }
 
 
+.auth-button{
+	width:100%;
+	margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.member {
+  margin: auto;
+}
+
 .login-form-forgot {
   float: right;
-
+ 
 }
 
 
