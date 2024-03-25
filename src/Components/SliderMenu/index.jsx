@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./style.css";
-
+import { Button } from "antd";
 const SliderMenu = () => {
   return (
     <div>
@@ -12,23 +12,17 @@ const SliderMenu = () => {
               <div className="col-12">
                 <div className="thumb-content-left">
                   <h2 className="title-slider">
-              <img src="https://st.gamevui.com/images/image/2020/05/14/giai-cau-do-640.jpg"/>
+              <img src="https://trangnguyentiengviet.vn/_next/image/?url=%2Fassets%2Fimages%2Fbg-village.jpg&w=1920&q=75"/>
             </h2>
             <div className="about-link">
-                    <NavLink
-                      className="about-button"
-                      title="Xem ngay"
-                      to={"/products"}>
-                      PLAY
-                    </NavLink>
-                  </div>
-                </div>
-              </div>
-             
-              </div> 
-              </div> 
-            </div>
-          </section>
+              <NavLink title="Xem ngay" to={"/topic"}>  PLAY  </NavLink> 
+                     </div>
+                      </div>
+                      </div>
+                      </div> 
+                      </div> 
+                       </div>
+                        </section>
 
 
       
