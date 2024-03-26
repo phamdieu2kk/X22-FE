@@ -1,5 +1,14 @@
 import axios from "axios";
 
+export const setAccessToken = (token) => {
+    localStorage.setItem('AccessToken',token)
+    axios.defaults.headers['Authorization'] = token
+}
+export const getAccessToken = () =>  {
+    const token =  localStorage.getItem('AccessToken')
+    axios.defaults.headers['Authorization'] = token
+    return {token}
+}
 export const apiElement = (method, path, customBaseUrl = '') => {
     return {
         invoke: ({ params, queries, data }) => {

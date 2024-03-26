@@ -65,7 +65,7 @@ const ResetPassword = () => {
             <Form.Item
                 label="Xác nhận mật khẩu"
                 name="passwordConfirmation"
-                onChange={(e) => 
+                onChange={(e) =>
                     setpasswordConfirmation(e.target.value)} 
                 rules={[
                     { required: true, message: 'Xác nhận mật khẩu bắt buộc nhập', whitespace: true },
@@ -77,14 +77,11 @@ const ResetPassword = () => {
 
            
             <Button type="primary" htmlType="submit" className="auth-button">Đặt lại mật khẩu</Button>
-           
-                      
-                           
-                            </Form>
-                            </div>
-                            <FooterList />
-                             </>
-                              )
-                            }
+             </Form>
+             </div>
+             <FooterList />
+              </>
+                )
+            }
 
 export default ResetPassword
