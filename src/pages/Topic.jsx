@@ -20,9 +20,11 @@ const Topic = () => {
     })();
   }, []);
 
-  const { data } = topic;
+  const { data, isLoading } = topic;
 
   console.log(data);
+ 
+
   return (
     <>
       <div className="content">

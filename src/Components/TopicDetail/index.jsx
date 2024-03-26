@@ -3,28 +3,21 @@ import "./style.css";
 
 
 const TopicDetail = () => {
+  
 
   return (
     <>
       <div className="content">
-       
-
-      
-      <section className="section-danhmuc">
+        <section className="section-danhmuc">
           <div className="row">
             <div className="col- swiper-flex">
               <div className="col-xxl-2 col-lg-3 col-md-4 col-6">
                 <div className="topic-box">
+                <div className="topic-detail">
                   <div className="topic-img">
-                    <img src="https://cdn.tuoitre.vn/zoom/720_450/471584752817336320/2024/3/10/top-1-1710022929526890109735-23-0-527-806-crop-1710022990307787102898.jpg" />
-                    <div className="topic-detail">
-                      <h3>
-                        Chủ Đề
-                        <br/>
-                        <a href="/challenges" title="Xem ngay">
-                          Xem ngay
-                        </a>
-                      </h3>
+                     <img src="https://cdn.tuoitre.vn/zoom/720_450/471584752817336320/2024/3/10/top-1-1710022929526890109735-23-0-527-806-crop-1710022990307787102898.jpg" />
+                     <h3> <a href="/challenges" title="Xem ngay" >
+                    Chủ Đề  </a></h3>
                     </div>
                   </div>
                 </div>
