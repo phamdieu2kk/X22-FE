@@ -17,7 +17,7 @@ const Forgotpassword = () => {
             );
             const data = response.data;
             alert(data?.message);
-            navigate("/reset-password");
+            // navigate("/reset-password");
         } catch (error) {
             alert(error.response?.data?.message ?? error.response?.data);
         }

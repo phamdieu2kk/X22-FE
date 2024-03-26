@@ -26,10 +26,10 @@
 
 .nav-link.active {
     text-decoration: none;
-    color: #000000 !important;
+    color: #f7f702 !important;
 }
 
 .nav-link:hover {
     text-decoration: none !important;
-    color: #090600 !important;
+    color: #040404 !important;
 }

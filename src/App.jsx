@@ -2,7 +2,7 @@
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AuthContext from "./context/AuthContext";
 import AppRouter from "./routers/Approuter";
 import { ConfigProvider, notification } from "antd";
@@ -13,7 +13,9 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState();
   const [notify, notifyContextHolder] = useNotification();
-
+  
+  // useEffect(() => {})
+  
   return (
     <BrowserRouter>
       <ConfigProvider>

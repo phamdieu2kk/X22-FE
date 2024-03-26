@@ -32,6 +32,8 @@ const mainAuthItems = [
         label: <NavLink className="nav-link" to="/login">Đăng nhập</NavLink>,
         key: 'login',
     }
+
+    
 ];
 
 export default function Header() {

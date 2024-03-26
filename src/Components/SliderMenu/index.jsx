@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./style.css";
-import { Button } from "antd";
+
 const SliderMenu = () => {
   return (
     <div>

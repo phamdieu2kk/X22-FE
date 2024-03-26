@@ -5,7 +5,7 @@ import {  Button, Form, Input, Typography, notification } from "antd";
 import FooterList from "../Components/FooterList";
 
 import api from "../api";
-
+import { setAccessToken } from "../api/core";
 export default function Login() {
     const [loginForm] = Form.useForm();
     const [notify, notifyContextHolder] = notification.useNotification();
@@ -22,7 +22,9 @@ export default function Login() {
 
 
         try {
-            await api.login.invoke({ data: dto });
+         const response =   await api.login.invoke({ data: dto });
+         console.log(response)
+         setAccessToken ( response.data.token)
             notify.success({
                 message: 'Thành công',
                 description: 'Đăng nhập tài khoản thành công',
