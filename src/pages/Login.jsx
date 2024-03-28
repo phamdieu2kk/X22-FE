@@ -12,7 +12,6 @@ export default function Login() {
         console.log('Giá trị nhập vào ', values);
 
         const dto = {
-
             username: values.username,
             password: values.password.trim(),
         };
