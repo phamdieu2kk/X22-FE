@@ -1,5 +1,4 @@
 
-import Slider from "../Slider";
 import FooterList from "../FooterList";
 import { NavLink , useNavigate } from "react-router-dom";
 import { Breadcrumb, Button, Form, Input, Typography, notification } from "antd";
@@ -25,7 +24,7 @@ const ResetPassword = () => {
    
    try {
     const response = await axios.post(
-    "http://103.30.10.141:3000/user/reset-password",
+    "http://103.30.10.141:3000/api/v1/user/resetpassword",
     { password}
     );
     const data = response.data;
