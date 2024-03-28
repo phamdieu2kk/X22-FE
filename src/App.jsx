@@ -30,7 +30,7 @@ function App() {
       </ConfigProvider>
       <FooterList />
     </BrowserRouter>
-   
+
   );
 }
 

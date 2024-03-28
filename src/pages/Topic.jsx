@@ -4,7 +4,6 @@ import axios from "axios";
 import "../Components/Products/style.css";
 import { Breadcrumb } from "antd";
 import { Link } from "react-router-dom";
-import TopicDetail from "../Components/TopicDetail";
 
 const Topic = () => {
   const [topic, setTopic] = useState({
@@ -12,10 +11,12 @@ const Topic = () => {
     isLoading: false,
   });
 
+
+
   useEffect(() => {
     (async () => {
       setTopic((prev) => ({ ...prev, isLoading: true }));
-      const { data: _data } = await axios.get("http://103.30.10.141:3000/topic/create");
+      const { data: _data } = await axios.get("http://103.30.10.141:3000/api/v1/topic/create");
       setTopic(() => ({ data: _data, isLoading: false }));
     })();
   }, []);
@@ -76,7 +77,7 @@ const Topic = () => {
                   </div>
                 </div>
               </div>
-
+          
               <div className="col-xxl-2 col-lg-3 col-md-4 col-6 ">
                 <div className="topic-box">
                   <div className="topic-img">
