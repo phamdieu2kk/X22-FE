@@ -1,5 +1,5 @@
 import { Col, Flex, Menu, Row } from "antd";
-import React from "react";
+
 import { NavLink } from "react-router-dom";
 import "./style.css";
 

@@ -4,7 +4,7 @@ import "./style.css";
 
 
 
-const Products = () => {
+const Ranks = () => {
  
   return (
     <>
@@ -16,4 +16,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Ranks;

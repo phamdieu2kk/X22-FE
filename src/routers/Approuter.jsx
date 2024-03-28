@@ -13,7 +13,7 @@ import Account from "../pages/Account";
 import UpdateAccountForm from "../pages/UpdateAccountForm";
 import ResetPassword from "../Components/ResetPassword";
 import TopicDetail from "../Components/TopicDetail";
-
+import Ranks from "../Components/ranks";
 export default function AppRouter() {
     return <Routes>
         <Route path="/" element={<Home />} />
@@ -29,6 +29,6 @@ export default function AppRouter() {
         <Route path="/updateaccountform" element={<UpdateAccountForm />} />
         <Route path="/outstand" element={<Outstand />} />
         <Route path="/challenges" element={<Challenges />} />
-
+        <Route path="/ranks" element={<Ranks />} />
     </Routes>
 }
