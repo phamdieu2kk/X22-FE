@@ -1,7 +1,6 @@
-
-import FooterList from "../Components/FooterList";
 import { Breadcrumb } from "antd";
 import { Link} from "react-router-dom";
+import UpdateAccountForm from "./UpdateAccountForm";
 const Account = () => {
   return (
    
@@ -18,16 +17,14 @@ const Account = () => {
         <div className="card">
           <div className="card-body">
             <h2 className="card-title text-center mb-4"> Cập nhật thông tin cá nhân</h2>
-  
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-   
-        
-        </div>
-      <FooterList/>
+            <UpdateAccountForm/>
+             </div>
+             </div>
+             </div>
+             </div>
+             </div>
+             </div>
+     
  
       </>
 

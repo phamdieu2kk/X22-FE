@@ -1,6 +1,5 @@
 
 
-import FooterList from "../Components/FooterList";
 import { Breadcrumb , Button} from "antd";
 import { Link } from "react-router-dom";
 
@@ -92,25 +91,19 @@ const Contact = () => {
           />
         </div>
         
-          <div className="error-message" />
-          <div
-            className="sent-message"
-          
-          >
-            Tin nhắn của bạn đã được gửi. Cảm ơn!
-          </div>
+        
        
-        <div className="text-center">
+   
         <Button type="primary" htmlType="submit" className="auth-button"> Gửi tin nhắn</Button>
           
-        </div>
+        
       </form>
     </div>
   </div>
 </div>
 </div>
 </div>
-      <FooterList />
+     
     </>
   );
 };

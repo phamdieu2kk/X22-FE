@@ -12,7 +12,7 @@ const Forgotpassword = () => {
     const handleForgotpasswordForm = async () => {
         try {
             const response = await axios.post(
-                "http://103.30.10.141:3000/user/forgotpassword",
+                "http://103.30.10.141:3000/api/v1/user/forgotpassword",
                 { email }
             );
             const data = response.data;
@@ -39,13 +39,8 @@ const Forgotpassword = () => {
             >
                 <Input maxLength={256} />
             </Form.Item>
-            
             <Button type="primary" htmlType="submit" className="auth-button"  onClick={handleForgotpasswordForm}>Lấy lại mật khẩu</Button>
-            
-             </Form>
-              
-            
-
+            </Form>
             <FooterList />
         </div>
     );

@@ -8,7 +8,7 @@ import AppRouter from "./routers/Approuter";
 import { ConfigProvider, notification } from "antd";
 import Header from "./Components/Header";
 import useNotification from "antd/es/notification/useNotification";
-
+import FooterList from "./Components/FooterList";
 function App() {
 
   const [currentUser, setCurrentUser] = useState();
@@ -28,7 +28,9 @@ function App() {
         </AuthContext.Provider>
 
       </ConfigProvider>
+      <FooterList />
     </BrowserRouter>
+
   );
 }
 
