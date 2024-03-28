@@ -20,7 +20,7 @@ const Topic = () => {
     })();
   }, []);
 
-  const { data, isLoading } = topic;
+  const { data} = topic;
 
   console.log(data);
  
