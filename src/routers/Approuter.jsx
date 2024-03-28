@@ -10,8 +10,10 @@ import Register from "../pages/Register";
 import Challenges from "../Components/Challenges";
 import Forgotpassword from "../Components/Forgotpassword";
 import Account from "../pages/Account";
+import UpdateAccountForm from "../pages/UpdateAccountForm";
 import ResetPassword from "../Components/ResetPassword";
 import TopicDetail from "../Components/TopicDetail";
+
 export default function AppRouter() {
     return <Routes>
         <Route path="/" element={<Home />} />
@@ -24,7 +26,9 @@ export default function AppRouter() {
         <Route path="/register" element={<Register />} />
         <Route path="/challenges" element={<Challenges />} />
         <Route path="/account" element={<Account />} />
+        <Route path="/updateaccountform" element={<UpdateAccountForm />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/topicdetail/:id" element={<TopicDetail />} />
+   
     </Routes>
 }

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import FooterList from "../Components/FooterList";
+
 import { Breadcrumb } from "antd";
 const About = () => {
   return (
@@ -11,7 +11,7 @@ const About = () => {
         </div>
         <h2> Hướng Dẫn Trò Chơi</h2>
       </div>
-      <FooterList />
+     
       
     </>
   );

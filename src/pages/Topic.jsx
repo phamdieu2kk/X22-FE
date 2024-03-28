@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import FooterList from "../Components/FooterList";
+
 import "../Components/Products/style.css";
 import { Breadcrumb } from "antd";
 import { Link } from "react-router-dom";
@@ -35,7 +35,7 @@ const Topic = () => {
      
      <TopicDetail/>
      
-      <FooterList />
+     
     </>
   );
 };

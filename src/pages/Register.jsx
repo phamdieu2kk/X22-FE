@@ -1,5 +1,3 @@
-
-import FooterList from "../Components/FooterList";
 import { Link, useNavigate } from "react-router-dom";
 import { Button,Checkbox, Form, Input, Typography, notification } from "antd";
 import api from "../api";
@@ -111,6 +109,6 @@ export default function Register() {
                              <div className="member"> Bạn đã có tài khoản{" "}<Link to="/login"> Đăng nhập </Link> tại đây ?</div>
                         </Form.Item>
                         </Form>
-                         <FooterList />
+                        
                          </div>
                          }

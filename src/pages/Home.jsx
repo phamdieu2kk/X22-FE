@@ -1,6 +1,5 @@
 
 
-import FooterList from "../Components/FooterList";
 import SliderMenu from "../Components/SliderMenu";
 
 const Home = () => {
@@ -60,7 +59,7 @@ const Home = () => {
 
 
       </div>
-      <FooterList />
+   
     </>
   );
 };
