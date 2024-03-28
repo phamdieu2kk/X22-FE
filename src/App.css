@@ -191,77 +191,44 @@ body {
 /* CSS Contact */
 
 
-.layout-contact {
-  margin: 40px auto;
-  width: 50%;
+--------------------------------------------------------------*/
+.contact-forms {
+  width: 100%;
 }
 
-
-.form-contact {
-  border-radius: 10px;
-  padding: 10px;
-  background: #f5eaea url("https://trangnguyen.edu.vn/assets/images/bg-login-box.svg") no-repeat top left ;
+.contact-forms i {
+  font-size: 20px;
+  float: left;
+  width: 44px;
+  height: 44px;
+  background: #cda45e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
 }
 
-
- .content-form {
-  padding: 10px;
-  display: block
+.contact-forms h4 {
+  padding: 0 0 0 60px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-family: "Poppins", sans-serif;
 }
 
-.form-contact h4 {
-  margin-bottom: 15px;
-  position: relative;
-  font-size: 24px;
-  font-weight: 700;
-  color: #000000;
-
-  display: inline-block;
-}
-
-
-
-.group_contact {
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.group_contact input {
-  padding: 5px 20px;
-  border: 1px solid #e6e6e6;
-  margin-bottom: 10px;
-}
-
- .group_contact textarea {
-  border: 1px solid #dea7a7;
-  margin-bottom: 10px;
-  outline: none;
+.contact-forms p {
+  padding: 0 0 0 60px;
+  margin-bottom: 0;
   font-size: 14px;
-  border-radius: 10px;
-  padding: 10px 20px;
-  height: 77px;
+  color: #bab3a6;
 }
 
-
-
-.btn-lienhe {
-  background: #4096f9;
-  color: #fff;
-  border: initial;
-  padding: 0 20px;
-  line-height: 35px;
-  font-size: 14px;
-  border-radius: 8px
+.contact-forms .open-hours,
+.contact-forms .email,
+.contact-forms .phone {
+  margin-top: 40px;
 }
-
-.btn-lienhe:hover {
-  background-color: #e4a53d
-}
-
-
-
-
-
 
 
 
