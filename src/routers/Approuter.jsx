@@ -1,4 +1,3 @@
-
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Instruction from "../pages/Instruction";
@@ -15,20 +14,21 @@ import ResetPassword from "../Components/ResetPassword";
 import TopicDetail from "../Components/TopicDetail";
 
 export default function AppRouter() {
-    return <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/instruction" element={<Instruction />} />
-        <Route path="/topic" element={<Topic />} />
-        <Route path="/topic/:id" element={<TopicDetail />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/forgotpassword" element={<Forgotpassword />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/updateaccountform" element={<UpdateAccountForm />} />
-        <Route path="/outstand" element={<Outstand />} />
-        <Route path="/challenges" element={<Challenges />} />
-
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/instruction" element={<Instruction />} />
+      <Route path="/topic" element={<Topic />} />
+      <Route path="/topic/:topicId/detail" element={<TopicDetail />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/forgotpassword" element={<Forgotpassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/account" element={<Account />} />
+      <Route path="/updateaccountform" element={<UpdateAccountForm />} />
+      <Route path="/outstand" element={<Outstand />} />
+      <Route path="/topic/:topicId/challenges" element={<Challenges />} />
     </Routes>
+  );
 }
