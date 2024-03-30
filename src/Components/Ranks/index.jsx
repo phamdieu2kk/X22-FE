@@ -1,12 +1,12 @@
 
 import "./style.css";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 
 
-
 const Ranks = () => {
+  
    const [ranks, setRanks] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
   
@@ -27,7 +27,7 @@ const Ranks = () => {
   
     return (
       <div>
-        <h2 className="text-gradient-gold mt-1 text-center font-SVN-Merge font-bold drop-shadow-sm text-4xl">
+         <h2 className="title-instruction">
           BẢNG VÀNG QUỐC GIA
         </h2>
         <div className="pt-2 text-right">

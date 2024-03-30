@@ -5,7 +5,7 @@ const api = {
     login: apiElement('POST', '/user/login'),
     auth: apiElement('POST', '/user/auth'),
     topic: apiElement('GET', '/topic'),
-    getChallenges: apiElement('GET', '/topic/:topicId/challenges'),
+    getChallenges: apiElement('GET', '/challenges/:topicId'),
 
 };
 

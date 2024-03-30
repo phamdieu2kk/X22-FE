@@ -5,9 +5,6 @@ import { Breadcrumb } from "antd";
 
 import { Card, Button, Modal } from "antd";
 import api from "../../api";
-
-
-
 const Challenges = () => {
   const [challenges, setChallenges] = React.useState([]);
   const [selectedChallenge, setSelectedChallenge] = React.useState(null);
@@ -66,23 +63,23 @@ const Challenges = () => {
                 description={`Level: ${challenge.level} - Point: ${challenge.point}`}
               />
               <Button onClick={() => handleShowDetail(challenge)}>
-                Xem chi tiết
+                View Detail
               </Button>
             </Card>
           </div>
         ))}
         <Modal
-          title={selectedChallenge?.challengeName}
-          visible={!!selectedChallenge}
-          onCancel={handleCloseDetail}
-          footer={null}
+        title={selectedChallenge?.challengeName}
+        open={!!selectedChallenge} // Sửa visible thành open
+        onClose={handleCloseDetail} // Sửa onCancel thành onClose
+        footer={null}
         >
           <p>Level: {selectedChallenge?.level}</p>
           <p>Point: {selectedChallenge?.point}</p>
           {/* Display other details */}
-        </Modal>
+          </Modal>
       </div>
-      
+ 
     </div>
   );
 };

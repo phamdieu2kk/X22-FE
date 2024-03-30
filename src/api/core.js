@@ -17,6 +17,8 @@ export const getAccessToken = () => {
 export const apiElement = (method, path, customBaseUrl = '') => {
     return {
         invoke: ({ params, queries, data }) => {
+            const token = localStorage.getItem("AccessToken") ?? "";
+      axios.defaults.headers.Authorization = `${token}`;
 
             let actualPath = path;
             for (const key in params) actualPath = actualPath.replace(`:${key}`, params[key]);
