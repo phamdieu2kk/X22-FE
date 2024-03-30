@@ -1,6 +1,6 @@
 import  { useEffect, useState } from "react";
 
-import { Breadcrumb, Card, Pagination } from "antd";
+import { Breadcrumb, Card, Pagination , Divider, Row , Col} from "antd";
 import { Link } from "react-router-dom";
 import api from "../api";
 
@@ -61,7 +61,7 @@ const Topic = () => {
         </div>
       </div>
 
-      <div className="content">
+     
         <section className="section-danhmuc">
           <div className="row">
           
@@ -89,24 +89,26 @@ const Topic = () => {
                    
                    
                       <div className="topic-detail" >
-                     
+                      {/* <p>{topic.topicName}</p> */}
+                      < Divider />
                         <h3>
                           <Link to={`/topic/${topic._id}/challenges`}>
                           Chủ Đề
                       </Link>
                         </h3>
-                        {/* <p>{topic.topicName}</p> */}
+                       
                       </div>
                   </Card>
+                 
+
                 </div>
               ))
             )}
           </div>
       
         </section>
-        </div>
+       
 
-{/* Hiển thị nút phân trang */}
  {/* Hiển thị nút phân trang */}
  <div style={{ textAlign: "center", marginTop: "20px" }}>
         <Pagination

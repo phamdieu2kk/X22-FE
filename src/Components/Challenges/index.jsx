@@ -1,10 +1,13 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { Breadcrumb } from "antd";
-import Slider from "../Slider";
-import FooterList from "../FooterList";
+
+
 import { Card, Button, Modal } from "antd";
 import api from "../../api";
+
+
+
 const Challenges = () => {
   const [challenges, setChallenges] = React.useState([]);
   const [selectedChallenge, setSelectedChallenge] = React.useState(null);
@@ -36,7 +39,7 @@ const Challenges = () => {
 
   return (
     <div>
-      <Slider />
+      
       <div className="title-home">
         <Breadcrumb>
           <Breadcrumb.Item>
@@ -79,7 +82,7 @@ const Challenges = () => {
           {/* Display other details */}
         </Modal>
       </div>
-      <FooterList />
+      
     </div>
   );
 };
