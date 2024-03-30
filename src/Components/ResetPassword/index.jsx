@@ -43,7 +43,6 @@ const ResetPassword = () => {
     return (
         <>
             <div className="register-page">
-            {notifyContextHolder}
                 <Form className="auth-form">
                     <Typography.Title style={{ textAlign: 'center' }}>Đặt lại mật khẩu </Typography.Title>
                             

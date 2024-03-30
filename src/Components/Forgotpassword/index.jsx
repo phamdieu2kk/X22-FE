@@ -1,13 +1,14 @@
 
+import FooterList from "../FooterList";
 import {  useNavigate } from "react-router-dom";
-import { Button, Form, Input, Typography, notification } from "antd";
+import {  Button, Form, Input, Typography, notification } from "antd";
 import { useState } from "react";
 import axios from "axios";
 
 const Forgotpassword = () => {
     const [email, setEmail] = useState("");
     const navigate = useNavigate();
-    const [notify, notifyContextHolder] = notification.useNotification();
+
     const handleForgotpasswordForm = async () => {
         try {
             const response = await axios.post(
@@ -16,23 +17,14 @@ const Forgotpassword = () => {
             );
             const data = response.data;
             alert(data?.message);
-            notify.success({
-                message: 'Thành công',
-                description: 'Gửi email thành công',
-               
-            });
+            // navigate("/reset-password");
         } catch (error) {
             alert(error.response?.data?.message ?? error.response?.data);
-            notify.error({
-                message: 'Thất bại',
-                description: 'Gửi email thất bại'
-            });
         }
     };
 
     return (
         <div className="register-page">
-             {notifyContextHolder}
             <Form className="auth-form">
             <Typography.Title style={{ textAlign: 'center', color:"" }}>Quên mật khẩu </Typography.Title>
 
@@ -49,7 +41,7 @@ const Forgotpassword = () => {
             </Form.Item>
             <Button type="primary" htmlType="submit" className="auth-button"  onClick={handleForgotpasswordForm}>Lấy lại mật khẩu</Button>
             </Form>
-          
+            <FooterList />
         </div>
     );
 };

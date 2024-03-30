@@ -29,8 +29,10 @@
   }
   
   .about-link {
-    margin-top: 15px;
-  }
+    text-align: center;
+  
+    
+   }
  
  .about-link a:hover {
     text-decoration: none;
@@ -47,3 +49,7 @@
     
   }
 
+ .about-button {
+  
+margin: auto;
+ }
