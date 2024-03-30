@@ -13,7 +13,7 @@ const Questions = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await axios.get('http://localhost:5173/questions');
+        const response = await axios.get('');
         setQuestions(response.data.questions);
       } catch (error) {
         console.error('Error fetching questions:', error);
@@ -67,8 +67,8 @@ const Questions = () => {
             <div className="item-1" />
             <div className="item-2" />
             <div className="item-3" />
-          </Flex>  */}
-          
+          </Flex> 
+           */}
 
           <div>
         <h1>Question {currentQuestionIndex + 1}</h1>
