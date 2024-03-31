@@ -1,10 +1,10 @@
-import { Breadcrumb, Flex, message, Button } from "antd";
+import { Breadcrumb, Flex, message } from "antd";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 const baseStyle = {
-  width: "25%",
-  height: 50,
+  width: "50%",
+  height: 100,
   borderRadius: 6,
   display: "flex",
   justifyContent: "center",
@@ -12,13 +12,72 @@ const baseStyle = {
   cursor: "pointer", // Thêm style cho con trỏ khi di chuột qua đáp án
 };
 
+const Question = ({ question, answers, correctAnswer, handleAnswerClick, results, currentQuestionIndex }) => (
+  
+  
+  <div className="bodywrap">
+  <div style={{ margin: 10 }}>
+    <div
+      style={{
+        ...baseStyle,
+        backgroundColor: "#FF9933",
+        color: "#000033",
+        border: "2px solid #000033",
+        height: 150,
+        width: 700,
+        marginBottom: 20,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center", // Căn giữa theo chiều dọc
+        textAlign: "center", // Căn giữa theo chiều ngang
+      }}
+    >
+      {question}
+    </div>
+    <Flex gap="middle" vertical justifyContent="space-between">
+      <Flex gap="middle">
+        {answers.slice(0, 2).map((answer, answerIndex) => (
+          <div
+            key={answerIndex}
+            style={{
+              ...baseStyle,
+              backgroundColor: results[currentQuestionIndex] === null ? "#00EE00" : answer === correctAnswer ? "#00FF00" : "#FF0000",
+              color: "#000033",
+            }}
+            onClick={() => handleAnswerClick(answer, correctAnswer, currentQuestionIndex)}
+          >
+            {`Đáp án ${answer}`}
+          </div>
+        ))}
+      </Flex>
+      <Flex gap="middle">
+        {answers.slice(2).map((answer, answerIndex) => (
+          <div
+            key={answerIndex}
+            style={{
+              ...baseStyle,
+              backgroundColor: results[currentQuestionIndex] === null ? "#00EE00" : answer === correctAnswer ? "#00FF00" : "#FF0000",
+              color: "#000033",
+            }}
+            onClick={() => handleAnswerClick(answer, correctAnswer, currentQuestionIndex)}
+          >
+            {`Đáp án ${answer}`}
+          </div>
+        ))}
+      </Flex>
+    </Flex>
+  </div>
+  </div>
+);
+
 const Questions = () => {
   const questions = [
     {
-      question: "Câu hỏi 1?",
-      correctAnswer: "A",
-      answers: ["A", "B", "C", "D"],
+      question: "Câu hỏi 1: 2 con vịt đi trước 2 con vịt, 2 con vịt đi sau 2 con vịt, 2 con vịt đi giữa 2 con vịt. Hỏi có mấy con vịt ?",
+      correctAnswer: "4 con vịt",
+      answers: ["4 con vịt", "1 con vịt", "3 con vịt", "2 con vịt"],
     },
+    
     // Thêm các câu hỏi khác tương tự ở đây
   ];
 
@@ -88,63 +147,41 @@ const Questions = () => {
   };
 
   return (
-    <div>
+    <div >
       <div className="title-home">
         <Breadcrumb
           items={[
             { title: <Link to="/">Trang chủ</Link> },
-            { title: "Tất cả chủ đề" },
+            { title: "Câu hỏi" },
           ]}
         />
       </div>
 
       <div className="content" style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", minHeight: "100vh" }}>
-        {currentQuestionIndex < questions.length && (
-          <Flex gap="middle" vertical>
-            <div style={{ marginTop: 10 }}>
-              <span style={{ marginRight: 20 }}>Điểm số: {countCorrectAnswers()} / {questions.length}</span>
-              <span>Thời gian còn lại: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</span>
-            </div>
-            <div style={{ margin: 16 }}>
-              <div
-                style={{
-                  ...baseStyle,
-                  backgroundColor: "#FF9933",
-                  color: "#000033",
-                  border: "2px solid #000033",
-                  height: 100,
-                  width: 400,
-                  marginBottom: 50,
-                }}
-              >
-                {questions[currentQuestionIndex].question}
-              </div>
-              <Flex gap="middle" vertical justifyContent="space-between">
-                {questions[currentQuestionIndex].answers.map((answer, answerIndex) => (
-                  <div
-                    key={answerIndex}
-                    style={{
-                      ...baseStyle,
-                      backgroundColor: results[currentQuestionIndex] === null ? "#00EE00" : answer === questions[currentQuestionIndex].correctAnswer ? "#00FF00" : "#FF0000",
-                      color: "#000033",
-                    }}
-                    onClick={() => handleAnswerClick(answer, questions[currentQuestionIndex].correctAnswer, currentQuestionIndex)}
-                  >
-                    {`Đáp án ${answer}`}
-                  </div>
-                ))}
-              </Flex>
-            </div>
-          </Flex>
-        )}
-
-        {allQuestionsCompleted && (
-          <div>
-            <h3 style={{ marginTop: 20 }}>Kết quả cuối cùng: {finalResult ? 'Đúng' : 'Sai'}</h3>
-            <h3 style={{ marginTop: 20 }}>Điểm số: {countCorrectAnswers()} / {questions.length}</h3>
-          </div>
-        )}
+  {currentQuestionIndex < questions.length && (
+    <div className="question-container">
+      <div style={{ margin: "16px", display: "flex", justifyContent: "space-between", width: "100%" }}>
+        <div style={{ marginTop: "10px", marginRight: "30px" }}>Điểm số: {countCorrectAnswers()} / {questions.length}</div>
+        <div>Thời gian còn lại: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</div>
       </div>
+      <Question
+        question={questions[currentQuestionIndex].question}
+        answers={questions[currentQuestionIndex].answers}
+        correctAnswer={questions[currentQuestionIndex].correctAnswer}
+        handleAnswerClick={handleAnswerClick}
+        results={results}
+        currentQuestionIndex={currentQuestionIndex}
+      />
+    </div>
+  )}
+
+  {allQuestionsCompleted && (
+    <div>
+      <h3 style={{ marginTop: 20 }}>Kết quả cuối cùng: {finalResult ? 'Đúng' : 'Sai'}</h3>
+      <h3 style={{ marginTop: 20 }}>Điểm số: {countCorrectAnswers()} / {questions.length}</h3>
+    </div>
+  )}
+</div>
     </div>
   );
 };

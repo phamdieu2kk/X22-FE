@@ -7,7 +7,7 @@ const Outstand = () => {
   return (
     <>
       <div>
-        <Breadcrumb items={[{ title: <Link to="/">Trang chủ</Link> }, { title: 'Thử thách' }]} />
+        <Breadcrumb items={[{ title: <Link to="/">Trang chủ</Link> }, { title: '' }]} />
        
 
       </div>
