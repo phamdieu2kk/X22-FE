@@ -2,7 +2,7 @@
 import "./style.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import { Breadcrumb } from "antd";
 
 
 const Ranks = () => {
@@ -27,6 +27,16 @@ const Ranks = () => {
   
     return (
       <div>
+         <div className="content">
+        <div className="title-home">
+          <Breadcrumb
+            items={[
+              { title: <Link to="/">Trang chủ</Link> },
+              { title: "Tất cả chủ đề" },
+            ]}
+          />
+        </div>
+      </div>
          <h2 className="title-instruction">
           BẢNG VÀNG QUỐC GIA
         </h2>
@@ -42,32 +52,7 @@ const Ranks = () => {
             <option value={5}>5</option>
           </select>
         </div>
-        <table className="table-gold mx-auto mt-4 w-full max-w-[800px] font-SVN-Merge text-xs xl:text-base">
-          <tbody>
-            {isLoading ? (
-              <tr>
-                <td colSpan="6">Loading...</td>
-              </tr>
-            ) : (
-              ranks.map((rank, index) => (
-                <tr key={index} className={`rank-${index + 1}`}>
-                  <td>
-                    <div className="relative h-7 w-7">
-                      <div className="absolute inset-0 flex h-full w-full items-center justify-center font-SVN-Merge font-bold text-red-600">
-                        {index + 1}
-                      </div>
-                    </div>
-                  </td>
-                  <td>{rank.name}</td>
-                  <td>{rank.grade}</td>
-                  <td>{rank.school}</td>
-                  <td>{rank.district}</td>
-                  <td>{rank.province}</td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+       
       </div>
     );
   };

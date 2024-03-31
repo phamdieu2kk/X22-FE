@@ -1,7 +1,7 @@
 import { apiElement } from "./core";
 
 const api = {
-    register: apiElement('POST', '/api/v1/user/create'),
+    register: apiElement('POST', '/user/create'),
     login: apiElement('POST', '/user/login'),
     auth: apiElement('POST', '/user/auth'),
     topic: apiElement('GET', '/topic'),
