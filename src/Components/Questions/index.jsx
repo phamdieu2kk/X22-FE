@@ -73,9 +73,9 @@ const Question = ({ question, answers, correctAnswer, handleAnswerClick, results
 const Questions = () => {
   const questions = [
     {
-      question: "Câu hỏi 1: 2 con vịt đi trước 2 con vịt, 2 con vịt đi sau 2 con vịt, 2 con vịt đi giữa 2 con vịt. Hỏi có mấy con vịt ?",
-      correctAnswer: "4 con vịt",
-      answers: ["4 con vịt", "1 con vịt", "3 con vịt", "2 con vịt"],
+      question: "Câu hỏi 1: ",
+      correctAnswer: "B",
+      answers: ["A", "B", "C", "D"],
     },
     
     // Thêm các câu hỏi khác tương tự ở đây
