@@ -13,71 +13,73 @@ const baseStyle = {
 };
 
 const Question = ({ question, answers, correctAnswer, handleAnswerClick, results, currentQuestionIndex }) => (
-  
-  
   <div className="bodywrap">
-  <div style={{ margin: 10 }}>
-    <div
-      style={{
-        ...baseStyle,
-        backgroundColor: "#FF9933",
-        color: "#000033",
-        border: "2px solid #000033",
-        height: 150,
-        width: 700,
-        marginBottom: 20,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center", // Căn giữa theo chiều dọc
-        textAlign: "center", // Căn giữa theo chiều ngang
-      }}
-    >
-      {question}
+    <div style={{ margin: 10 }}>
+      <div
+        style={{
+          ...baseStyle,
+          backgroundColor: "#FF9933",
+          color: "#000033",
+          border: "2px solid #000033",
+          height: 150,
+          width: 700,
+          marginBottom: 20,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center", // Căn giữa theo chiều dọc
+          textAlign: "center", // Căn giữa theo chiều ngang
+        }}
+      >
+        {question}
+      </div>
+      <Flex gap="middle" vertical justifyContent="space-between">
+        <Flex gap="middle">
+          {answers.slice(0, 2).map((answer, answerIndex) => (
+            <div
+              key={answerIndex}
+              style={{
+                ...baseStyle,
+                backgroundColor: results[currentQuestionIndex] === null ? "#00EE00" : answer === correctAnswer ? "#00FF00" : "#FF0000",
+                color: "#000033",
+              }}
+              onClick={() => handleAnswerClick(answer, correctAnswer, currentQuestionIndex)}
+            >
+              {`Đáp án ${answer}`}
+            </div>
+          ))}
+        </Flex>
+        <Flex gap="middle">
+          {answers.slice(2).map((answer, answerIndex) => (
+            <div
+              key={answerIndex}
+              style={{
+                ...baseStyle,
+                backgroundColor: results[currentQuestionIndex] === null ? "#00EE00" : answer === correctAnswer ? "#00FF00" : "#FF0000",
+                color: "#000033",
+              }}
+              onClick={() => handleAnswerClick(answer, correctAnswer, currentQuestionIndex)}
+            >
+              {`Đáp án ${answer}`}
+            </div>
+          ))}
+        </Flex>
+      </Flex>
     </div>
-    <Flex gap="middle" vertical justifyContent="space-between">
-      <Flex gap="middle">
-        {answers.slice(0, 2).map((answer, answerIndex) => (
-          <div
-            key={answerIndex}
-            style={{
-              ...baseStyle,
-              backgroundColor: results[currentQuestionIndex] === null ? "#00EE00" : answer === correctAnswer ? "#00FF00" : "#FF0000",
-              color: "#000033",
-            }}
-            onClick={() => handleAnswerClick(answer, correctAnswer, currentQuestionIndex)}
-          >
-            {`Đáp án ${answer}`}
-          </div>
-        ))}
-      </Flex>
-      <Flex gap="middle">
-        {answers.slice(2).map((answer, answerIndex) => (
-          <div
-            key={answerIndex}
-            style={{
-              ...baseStyle,
-              backgroundColor: results[currentQuestionIndex] === null ? "#00EE00" : answer === correctAnswer ? "#00FF00" : "#FF0000",
-              color: "#000033",
-            }}
-            onClick={() => handleAnswerClick(answer, correctAnswer, currentQuestionIndex)}
-          >
-            {`Đáp án ${answer}`}
-          </div>
-        ))}
-      </Flex>
-    </Flex>
-  </div>
   </div>
 );
 
 const Questions = () => {
   const questions = [
     {
-      question: "Câu hỏi 1: ",
-      correctAnswer: "B",
-      answers: ["A", "B", "C", "D"],
+      question: "Câu hỏi 1: Có bao nhiêu cầu thủ được phép vào sân bóng đá? ",
+      correctAnswer: "11 cầu thủ",
+      answers: ["10 cầu thủ", "11 cầu thủ", "9 cầu thủ", "12 cầu thủ"],
     },
-    
+    {
+      question: "câu hỏi: Ai là Tổng thống đầu tiên của Hoa Kỳ?",
+      correctAnswer: "George Washington",
+      answers: ["Donald Trump", "Barack Obama", "Abraham Lincoln", "George Washington"],
+    },
     // Thêm các câu hỏi khác tương tự ở đây
   ];
 
@@ -91,20 +93,12 @@ const Questions = () => {
   const handleAnswerClick = (selectedAnswer, correctAnswer, questionIndex) => {
     if (selectedAnswer === correctAnswer) {
       setScore(score + 1);
-      setResults((prevResults) => {
-        const newResults = [...prevResults];
-        newResults[questionIndex] = true;
-        return newResults;
-      });
-      message.success("Chính xác!");
-    } else {
-      setResults((prevResults) => {
-        const newResults = [...prevResults];
-        newResults[questionIndex] = false;
-        return newResults;
-      });
-      message.error("Sai rồi!");
     }
+    setResults((prevResults) => {
+      const newResults = [...prevResults];
+      newResults[questionIndex] = selectedAnswer === correctAnswer;
+      return newResults;
+    });
     setCurrentQuestionIndex(currentQuestionIndex + 1);
   };
 
@@ -134,9 +128,14 @@ const Questions = () => {
   useEffect(() => {
     if (currentQuestionIndex >= questions.length) {
       setAllQuestionsCompleted(true);
-      calculateFinalResult();
     }
   }, [currentQuestionIndex, questions]);
+
+  useEffect(() => {
+    if (allQuestionsCompleted) {
+      calculateFinalResult();
+    }
+  }, [allQuestionsCompleted]);
 
   const calculateFinalResult = () => {
     const correctAnswers = countCorrectAnswers();
@@ -147,7 +146,7 @@ const Questions = () => {
   };
 
   return (
-    <div >
+    <div>
       <div className="title-home">
         <Breadcrumb
           items={[
@@ -158,30 +157,35 @@ const Questions = () => {
       </div>
 
       <div className="content" style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", minHeight: "100vh" }}>
-  {currentQuestionIndex < questions.length && (
-    <div className="question-container">
-      <div style={{ margin: "16px", display: "flex", justifyContent: "space-between", width: "100%" }}>
-        <div style={{ marginTop: "10px", marginRight: "30px" }}>Điểm số: {countCorrectAnswers()} / {questions.length}</div>
-        <div>Thời gian còn lại: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</div>
-      </div>
-      <Question
-        question={questions[currentQuestionIndex].question}
-        answers={questions[currentQuestionIndex].answers}
-        correctAnswer={questions[currentQuestionIndex].correctAnswer}
-        handleAnswerClick={handleAnswerClick}
-        results={results}
-        currentQuestionIndex={currentQuestionIndex}
-      />
-    </div>
-  )}
+        {currentQuestionIndex < questions.length && (
+          <div className="question-container">
+            <div style={{ margin: "16px", display: "flex", justifyContent: "space-between", width: "100%" }}>
+              <div style={{ marginTop: "10px", marginRight: "30px" }}>Điểm số: {countCorrectAnswers()} / {questions.length}</div>
+              <div>Thời gian còn lại: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</div>
+            </div>
+            <Question
+              question={questions[currentQuestionIndex].question}
+              answers={questions[currentQuestionIndex].answers}
+              correctAnswer={questions[currentQuestionIndex].correctAnswer}
+              handleAnswerClick={handleAnswerClick}
+              results={results}
+              currentQuestionIndex={currentQuestionIndex}
+            />
+          </div>
+        )}
 
-  {allQuestionsCompleted && (
-    <div>
-      <h3 style={{ marginTop: 20 }}>Kết quả cuối cùng: {finalResult ? 'Đúng' : 'Sai'}</h3>
-      <h3 style={{ marginTop: 20 }}>Điểm số: {countCorrectAnswers()} / {questions.length}</h3>
-    </div>
-  )}
-</div>
+        {allQuestionsCompleted && (
+          <div className="">
+            <h3>Kết quả cuối cùng: {finalResult ? 'Đúng' : 'Sai'}</h3>
+            <h3>Điểm số: {countCorrectAnswers()} / {questions.length}</h3>
+            {results.map((result, index) => (
+              <div key={index}>
+                <p>Câu {index + 1}: {result ? 'Đúng' : 'Sai'}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
