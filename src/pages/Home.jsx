@@ -1,14 +1,13 @@
-
-
 import SliderMenu from "../Components/SliderMenu";
+import Ranks from "../Components/ranks";
+
 
 const Home = () => {
-
-
   return (
     <>
       <div className="bodywrap">
         <div>
+        <Ranks/>
         <SliderMenu/>
         </div>
         

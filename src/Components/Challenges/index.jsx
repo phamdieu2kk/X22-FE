@@ -9,6 +9,7 @@ const Challenges = () => {
   const [challenges, setChallenges] = React.useState([]);
   const [selectedChallenge, setSelectedChallenge] = React.useState(null);
   const params = useParams();
+  const queries = new URLSearchParams(location.search);
   React.useEffect(() => {
     const fetchChallenges = async () => {
       try {
@@ -24,7 +25,7 @@ const Challenges = () => {
       }
     };
     fetchChallenges();
-  }, []);
+  }, [params.topicId]);
 
   const handleShowDetail = (challenge) => {
     setSelectedChallenge(challenge);

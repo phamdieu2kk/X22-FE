@@ -1,11 +1,12 @@
 import { apiElement } from "./core";
 
 const api = {
-    register: apiElement('POST', '/api/v1/user/create'),
+    register: apiElement('POST', '/user/create'),
     login: apiElement('POST', '/user/login'),
     auth: apiElement('POST', '/user/auth'),
     topic: apiElement('GET', '/topic'),
-    getChallenges: apiElement('GET', '/topic/:topicId/challenges'),
+    getChallenges: apiElement('GET', '/challenge?topicId='),
+    getQuestions: apiElement('GET', '/questions/:topicId'),
 };
 
 

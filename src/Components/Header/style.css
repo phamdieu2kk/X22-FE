@@ -21,7 +21,8 @@
 }
 
 .nav-menu.nav-menu-right {
-    width: auto;
+    width: 50%;
+   
 }
 
 .nav-link.active {

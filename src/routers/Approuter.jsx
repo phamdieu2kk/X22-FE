@@ -3,7 +3,7 @@ import Home from "../pages/Home";
 import Instruction from "../pages/Instruction";
 import Topic from "../pages/Topic";
 import Contact from "../pages/Contact";
-import Outstand from "../pages/Outstand";
+import Questions from "../Components/Questions";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Challenges from "../Components/Challenges";
@@ -12,6 +12,7 @@ import Account from "../pages/Account";
 import UpdateAccountForm from "../pages/UpdateAccountForm";
 import ResetPassword from "../Components/ResetPassword";
 import TopicDetail from "../Components/TopicDetail";
+import Ranks from "../Components/ranks";
 
 export default function AppRouter() {
   return (
@@ -27,8 +28,10 @@ export default function AppRouter() {
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/account" element={<Account />} />
       <Route path="/updateaccountform" element={<UpdateAccountForm />} />
-      <Route path="/outstand" element={<Outstand />} />
+      <Route path="/questions" element={<Questions />} />
       <Route path="/topic/:topicId/challenges" element={<Challenges />} />
+      <Route path="/ranks" element={<Ranks />} />
+
     </Routes>
   );
 }

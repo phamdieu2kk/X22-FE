@@ -1,129 +1,15 @@
-* {
-    font-family: 'Quicksand', sans-serif;
+
+
+  .d-none {
+    display: none;
 }
 
 
-.menu-container {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    position: absolute;
-    padding: 10px 0 ;
-    display: flex;
-    width: 100%;
-    height: auto;
-}
-
-
-.container {
-    width: 100%;
-   padding: 10px ;
-   margin: auto;
-   display: flex;
-   text-align: center;
-   justify-content: center;
-}
-
-
-
-.hSticky {
-    background: rgba(0, 0, 0, 0.7);
-    position: fixed;
-}
-
-
-.menu-content ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 0 0 15px 15px;
-    margin-top: 15px;
-}
-
-.menu-content .menu-item:hover {
-    color: #f0a607;
-    font-size: 18px ;
-    font-weight: bold;
-    
-}
-
-.menu-content .menu-item {
-    margin-right: 20px ;
-    font-size: 20px ;
-    font-weight: bold ;
-    text-decoration: none ;
-    color: rgb(1, 0, 0) ;
+/*CSS responsive*/
+@media (max-width: 700px) {
    
+.d-none {
+    display: none;
 }
 
-/* css icon */
-.icon-login{
-    color: #050401 ;
-    display: flex;
 }
-
-
-.form-login{
-    width:170px;
-    background: #fdfafa;
-    border: 1px solid #cd9b32;
-   height: 78px;
-   margin: auto;
-   
-}
-.link-login{
-    width: 157px;
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
-.link-login:hover{
-    width: 157px;
-    background-color: #e29d08;
-    list-style: none !important;
-    color: white;
-}
-.link-login a:hover{
-    font-size: 16px;
-    font-weight: 600;
-    color: rgb(21, 1, 1);
-}
-.link-login a{
-    font-size: 16px;
-    font-weight: 600;
-    color: #110c01;
-}
-
-.link-register{
-    width: 157px;
-    
-}
-.link-register:hover{
-    width: 157px;
-    background-color: #cd9b32;
-    list-style: none !important;
-    color: rgb(20, 1, 1);
-}
-.link-register a:hover{
-    font-size: 16px;
-    font-weight: 600;
-    color: #110c01;
-}
-.link-register a{
-    font-size: 16px;
-    font-weight: 600;
-    color: #100b00;
-}
-
-
-.form-user {
-    width: 364px;
-   padding: 20px;
-   background-color: #f1d495;
- }
-
-.form-user .input-username {
- margin-top: 10px;
- margin-bottom: 10px;
- height: 40px;
-}
-
