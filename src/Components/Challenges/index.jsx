@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { Breadcrumb, Card, Button, Modal } from "antd";
 import api from "../../api";
 
@@ -7,14 +7,12 @@ const Challenges = () => {
   const [challenges, setChallenges] = React.useState([]);
   const [selectedChallenge, setSelectedChallenge] = React.useState(null);
   const params = useParams();
-
+  const queries = new URLSearchParams(location.search);
   React.useEffect(() => {
     const fetchChallenges = async () => {
       try {
         const response = await api.getChallenges.invoke({
-          params: {
-            topicId: params.topicId,
-          },
+          queries: queries
         });
 
         setChallenges(response.data.challenges);

@@ -89,7 +89,7 @@ const Topic = () => {
                    
                    
                       <div className="topic-detail" >
-                      <h3>{topic.topicName}</h3>
+                      <h4>{topic.topicName}</h4>
                       
                         <h3>
                           <Link to={`/topic/${topic._id}/challenges`}>
