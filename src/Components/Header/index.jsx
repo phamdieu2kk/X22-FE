@@ -29,6 +29,10 @@ const mainMenuItems = [
     ),
     key: "instruction",
   },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1be8cca4cdb35eb4310c9ef577e643fc16b8fcb3
   {
     label: (
       <NavLink className="nav-link" to="/contact">
@@ -79,7 +83,6 @@ const accountMenuItems = [
 
 export default function Header() {
   const { currentUser } = useContext(AuthContext);
-
   return (
     <Row className="header">
       <Col sm={8}>
