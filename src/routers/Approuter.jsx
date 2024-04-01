@@ -13,7 +13,7 @@ import UpdateAccountForm from "../pages/UpdateAccountForm";
 import ResetPassword from "../Components/ResetPassword";
 import TopicDetail from "../Components/TopicDetail";
 import Ranks from "../Components/ranks";
-import Outstand from "../pages/Outstand";
+
 export default function AppRouter() {
   return (
     <Routes>
@@ -31,7 +31,7 @@ export default function AppRouter() {
       <Route path="/questions" element={<Questions />} />
       <Route path="/topic/:topicId/challenges" element={<Challenges />} />
       <Route path="/ranks" element={<Ranks />} />
-      <Route path="/outstand" element={<Outstand />} />
+
     </Routes>
   );
 }

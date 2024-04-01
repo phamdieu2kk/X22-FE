@@ -93,7 +93,7 @@ const Topic = () => {
                       
                         <h3>
                           <Link to={`/topic/${topic._id}/challenges`}>
-                          Chọn Ngay
+                          Chơi Ngay
                           </Link>
                         </h3>
                         </div>

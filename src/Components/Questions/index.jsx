@@ -156,7 +156,7 @@ const Questions = () => {
         />
       </div>
 
-      <div className="content" style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", minHeight: "100vh" }}>
+      <div className="content" style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
         {currentQuestionIndex < questions.length && (
           <div className="question-container">
             <div style={{ margin: "16px", display: "flex", justifyContent: "space-between", width: "100%" }}>

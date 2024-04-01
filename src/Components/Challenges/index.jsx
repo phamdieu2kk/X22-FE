@@ -1,14 +1,13 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { Breadcrumb } from "antd";
-
-
-import { Card, Button, Modal } from "antd";
+import { Breadcrumb, Card, Button, Modal } from "antd";
 import api from "../../api";
+
 const Challenges = () => {
   const [challenges, setChallenges] = React.useState([]);
   const [selectedChallenge, setSelectedChallenge] = React.useState(null);
   const params = useParams();
+
   React.useEffect(() => {
     const fetchChallenges = async () => {
       try {
@@ -24,7 +23,7 @@ const Challenges = () => {
       }
     };
     fetchChallenges();
-  }, []);
+  }, [params.topicId]);
 
   const handleShowDetail = (challenge) => {
     setSelectedChallenge(challenge);
@@ -36,7 +35,6 @@ const Challenges = () => {
 
   return (
     <div>
-      
       <div className="title-home">
         <Breadcrumb>
           <Breadcrumb.Item>
@@ -68,18 +66,17 @@ const Challenges = () => {
             </Card>
           </div>
         ))}
-        <Modal
-        title={selectedChallenge?.challengeName}
-        open={!!selectedChallenge} // Sửa visible thành open
-        onClose={handleCloseDetail} // Sửa onCancel thành onClose
-        footer={null}
-        >
-          <p>Level: {selectedChallenge?.level}</p>
-          <p>Point: {selectedChallenge?.point}</p>
-          {/* Display other details */}
-          </Modal>
       </div>
- 
+      <Modal
+        title={selectedChallenge?.challengeName}
+        visible={!!selectedChallenge}
+        onCancel={handleCloseDetail}
+        footer={null}
+      >
+        <p>Level: {selectedChallenge?.level}</p>
+        <p>Point: {selectedChallenge?.point}</p>
+        {/* Display other details */}
+      </Modal>
     </div>
   );
 };
