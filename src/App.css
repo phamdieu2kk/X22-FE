@@ -61,35 +61,18 @@ body {
 
 .section-danhmuc {
   margin: auto;
-
 }
-
-
-
 .topic-box {
   width: 460px;
   height: auto;
   text-align: center;
 }
 
-.topic-img img {
-  width: 50%;
-}
-
-
-
 .topic-detail h3 {
   margin-top: 20px;
   text-align: center;
- 
   font-weight: 500;
   font-family: 'Playball';
-  
-}
-
-
-.topic-detail h3 a:hover {
-  color: #000000;
 }
 
 .topic-detail h3 a {
@@ -97,27 +80,19 @@ body {
   text-decoration: none;
   font-weight: 500;
   font-family: 'Playball';
-  color: rgb(244, 13, 71);
+  color: rgb(250, 0, 63);
 }
-
-
-
-
 
 /* CSS instruction*/
 
 .section-instruction {
-  
   border-radius: 5px;
-
 }
 
 .title-instruction {
   font-size: 40px;
-
   display: block;
   text-align: center;
-
 }
 
 .title-instruction a {
@@ -126,41 +101,28 @@ body {
   color: #231f20;
 }
 
-
-
-
 /* CSS page home */
 .content {
   margin: auto;
 }
-
 .section-banner-1 {
   margin-top: 50px;
 }
-
 .thumb-image-banner {
   position: relative;
   overflow: hidden;
   display: block;
 }
-
-
-
 .section-banner-2 {
   margin-top: 50px;
 }
-
-
-
 .thumb-banner img {
   width: 497px;
   height: 354px;
 }
-
 .banner-left {
   margin-left: -28px;
 }
-
 .thumb-content {
   position: absolute;
   top: 50%;
@@ -168,26 +130,19 @@ body {
   left: 50%;
   transition: transform .25s ease, -webkit-transform .25s ease;
   width: 100%;
-
   text-align: center;
-
 }
-
 .thumb-content .title {
   font-size: 40px;
   color: #000000;
   letter-spacing: .1em;
   font-family: 'Playball';
 }
-
 .thumb-content p {
   color: #000;
   font-size: 14px;
   font-weight: bold;
 }
-
-
-
 
 /* CSS Contact */
 

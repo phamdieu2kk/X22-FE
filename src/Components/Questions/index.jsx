@@ -1,190 +1,144 @@
-import { Breadcrumb, Flex} from "antd";
+import "./style.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Breadcrumb, Flex, Row, Col, Button, message } from "antd";
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-
-const baseStyle = {
-  width: "50%",
-  height: 100,
-  borderRadius: 6,
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  cursor: "pointer", // Thêm style cho con trỏ khi di chuột qua đáp án
-};
-
-const Question = ({ question, answers, correctAnswer, handleAnswerClick, results, currentQuestionIndex }) => (
-  <div className="bodywrap">
-    <div style={{ margin: 10 }}>
-      <div
-        style={{
-          ...baseStyle,
-          backgroundColor: "#FF9933",
-          color: "#000033",
-          border: "2px solid #000033",
-          height: 150,
-          width: 700,
-          marginBottom: 20,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center", // Căn giữa theo chiều dọc
-          textAlign: "center", // Căn giữa theo chiều ngang
-        }}
-      >
-        {question}
-      </div>
-      <Flex gap="middle" vertical justifyContent="space-between">
-        <Flex gap="middle">
-          {answers.slice(0, 2).map((answer, answerIndex) => (
-            <div
-              key={answerIndex}
-              style={{
-                ...baseStyle,
-                backgroundColor: results[currentQuestionIndex] === null ? "#00EE00" : answer === correctAnswer ? "#00FF00" : "#FF0000",
-                color: "#000033",
-              }}
-              onClick={() => handleAnswerClick(answer, correctAnswer, currentQuestionIndex)}
-            >
-              {`Đáp án ${answer}`}
-            </div>
-          ))}
-        </Flex>
-        <Flex gap="middle">
-          {answers.slice(2).map((answer, answerIndex) => (
-            <div
-              key={answerIndex}
-              style={{
-                ...baseStyle,
-                backgroundColor: results[currentQuestionIndex] === null ? "#00EE00" : answer === correctAnswer ? "#00FF00" : "#FF0000",
-                color: "#000033",
-              }}
-              onClick={() => handleAnswerClick(answer, correctAnswer, currentQuestionIndex)}
-            >
-              {`Đáp án ${answer}`}
-            </div>
-          ))}
-        </Flex>
-      </Flex>
-    </div>
-  </div>
-);
 
 const Questions = () => {
-  const questions = [
-    {
-      question: "Câu hỏi 1: Có bao nhiêu cầu thủ được phép vào sân bóng đá? ",
-      correctAnswer: "11 cầu thủ",
-      answers: ["10 cầu thủ", "11 cầu thủ", "9 cầu thủ", "12 cầu thủ"],
-    },
-    {
-      question: "câu hỏi: Ai là Tổng thống đầu tiên của Hoa Kỳ?",
-      correctAnswer: "George Washington",
-      answers: ["Donald Trump", "Barack Obama", "Abraham Lincoln", "George Washington"],
-    },
-    // Thêm các câu hỏi khác tương tự ở đây
-  ];
-
-  const [score, setScore] = useState(0);
-  const [results, setResults] = useState(Array(questions.length).fill(null));
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(180);
+  const [questions, setQuestions] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [timeLeft, setTimeLeft] = useState(180); // 3 minutes in seconds
+  const [score, setScore] = useState(0); // Initial score
   const [allQuestionsCompleted, setAllQuestionsCompleted] = useState(false);
   const [finalResult, setFinalResult] = useState(null);
-
-  const handleAnswerClick = (selectedAnswer, correctAnswer, questionIndex) => {
-    if (selectedAnswer === correctAnswer) {
-      setScore(score + 1);
-    }
-    setResults((prevResults) => {
-      const newResults = [...prevResults];
-      newResults[questionIndex] = selectedAnswer === correctAnswer;
-      return newResults;
-    });
-    setCurrentQuestionIndex(currentQuestionIndex + 1);
-  };
-
-  const countCorrectAnswers = () => {
-    return results.filter((result) => result === true).length;
-  };
-
-  const minutes = Math.floor(timeLeft / 60);
-  const seconds = timeLeft % 60;
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // Track current question index
+  const [completedQuestions, setCompletedQuestions] = useState(0); // Track number of completed questions
+  const [correctAnswers, setCorrectAnswers] = useState(0); // Track number of correct answers
+  const [selectedOptions, setSelectedOptions] = useState([]); // Track selected options for each question
 
   useEffect(() => {
-    const countdownTimer = setInterval(() => {
-      setTimeLeft((prevTimeLeft) => {
-        if (prevTimeLeft === 0) {
-          clearInterval(countdownTimer);
-          if (!allQuestionsCompleted) {
-            calculateFinalResult();
-          }
-        }
-        return prevTimeLeft > 0 ? prevTimeLeft - 1 : 0;
-      });
-    }, 1000);
+    const fetchData = async () => {
+      try {
+        // Here you can use a sample data instead of fetching from an API
+        const sampleData = [
+          {
+            id: 1,
+            question: "Câu hỏi 1: Có bao nhiêu cầu thủ được phép vào sân bóng đá??",
+            options: [
+              { id: "A", text: "11 cầu thủ", isCorrect: true },
+              { id: "B", text: "10 cầu thủ", isCorrect: false },
+              { id: "C", text: "9 cầu thủ", isCorrect: false },
+              { id: "D", text: "12 cầu thủ", isCorrect: false }
+            ]
+          },
+          {
+            id: 2,
+            question: "Câu hỏi 1: Có bao nhiêu cầu thủ được phép vào sân bóng đá??",
+            options: [
+              { id: "A", text: "11 cầu thủ", isCorrect: true },
+              { id: "B", text: "10 cầu thủ", isCorrect: false },
+              { id: "C", text: "9 cầu thủ", isCorrect: false },
+              { id: "D", text: "12 cầu thủ", isCorrect: false }
+            ]
+          },
+          // You can add more sample questions here
+        ];
+        setQuestions(sampleData);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching questions:", error);
+      }
+    };
 
-    return () => clearInterval(countdownTimer);
+    fetchData();
   }, []);
 
   useEffect(() => {
-    if (currentQuestionIndex >= questions.length) {
-      setAllQuestionsCompleted(true);
-    }
-  }, [currentQuestionIndex, questions]);
+    const countdown = setInterval(() => {
+      setTimeLeft((prevTime) => {
+        if (prevTime === 0) {
+          clearInterval(countdown);
+          return 0;
+        }
+        return prevTime - 1;
+      });
+    }, 1000);
 
-  useEffect(() => {
-    if (allQuestionsCompleted) {
-      calculateFinalResult();
-    }
-  }, [allQuestionsCompleted]);
+    return () => clearInterval(countdown);
+  }, []);
 
-  const calculateFinalResult = () => {
-    const correctAnswers = countCorrectAnswers();
-    const totalQuestions = questions.length;
-    const percentage = (correctAnswers / totalQuestions) * 100;
-    const result = percentage >= 50 ? true : false;
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds < 10 ? `0${remainingSeconds}` : remainingSeconds}`;
+  };
+
+  const handleOptionSelect = (selectedOption, selectedQuestionId) => {
+    if (selectedOptions[currentQuestionIndex]) {
+      // If the question has already been answered, do nothing
+      return;
+    }
+    const currentQuestion = questions[currentQuestionIndex];
+    const selectedAnswer = currentQuestion.options.find((option) => option.id === selectedOption);
+    const updatedSelectedOptions = [...selectedOptions];
+    updatedSelectedOptions[currentQuestionIndex] = selectedOption;
+    setSelectedOptions(updatedSelectedOptions);
+    if (selectedAnswer.isCorrect) {
+      setScore((prevScore) => prevScore + 10); // Thay đổi giá trị từ prevScore + 1 thành prevScore + 10
+      setCorrectAnswers((prevCount) => prevCount + 1); // Tăng số câu trả lời đúng lên 1
+    }
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+      setCompletedQuestions((prevCount) => prevCount + 1); // Tăng số câu hỏi đã hoàn thành lên 1
+    } else {
+      handleGameOver();
+    }
+  };
+
+  const handleGameOver = () => {
+    // Calculate final result
+    const result = `Số câu đúng: ${correctAnswers}/10`;
     setFinalResult(result);
+    message.success("Trò chơi kết thúc");
   };
 
   return (
     <div>
-      <div className="title-home">
-        <Breadcrumb
-          items={[
-            { title: <Link to="/">Trang chủ</Link> },
-            { title: "Câu hỏi" },
-          ]}
-        />
-      </div>
+      <div className="content">
+        <div className="title-home">
+          <Breadcrumb
+            items={[
+              { title: <Link to="/">Trang chủ</Link> },
+              { title: "Câu hỏi" },
+            ]}
+          />
+        </div>
 
-      <div className="content" style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
-        {currentQuestionIndex < questions.length && (
-          <div className="question-container">
-            <div style={{ margin: "16px", display: "flex", justifyContent: "space-between", width: "100%" }}>
-              <div style={{ marginTop: "10px", marginRight: "30px" }}>Điểm số: {countCorrectAnswers()} / {questions.length}</div>
-              <div>Thời gian còn lại: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</div>
+        <div className="container-questions">
+          <div className="info-question">
+            <Flex>Số câu hỏi: {currentQuestionIndex + 1}/{questions.length}</Flex>
+            <Flex>Điểm: {score}</Flex>
+            <Flex>Thời gian: {formatTime(timeLeft)}</Flex>
+          </div>
+          {questions[currentQuestionIndex] && (
+            <div>
+              <h2 className="question">{questions[currentQuestionIndex].question}</h2>
+              <Row gutter={[16, 16]}>
+                {questions[currentQuestionIndex].options.map((option) => (
+                  <Col span={12} key={option.id}>
+                    <ul className="options">
+                      <li className="option" onClick={() => handleOptionSelect(option.id, questions[currentQuestionIndex].id)}>
+                        {`${option.id}. ${option.text}`}
+                      </li>
+                    </ul>
+                  </Col>
+                ))}
+              </Row>
             </div>
-            <Question
-              question={questions[currentQuestionIndex].question}
-              answers={questions[currentQuestionIndex].answers}
-              correctAnswer={questions[currentQuestionIndex].correctAnswer}
-              handleAnswerClick={handleAnswerClick}
-              results={results}
-              currentQuestionIndex={currentQuestionIndex}
-            />
-          </div>
-        )}
-
-        {allQuestionsCompleted && (
-          <div className="">
-            <h3>Kết quả cuối cùng: {finalResult ? 'Đúng' : 'Sai'}</h3>
-            <h3>Điểm số: {countCorrectAnswers()} / {questions.length}</h3>
-            {results.map((result, index) => (
-              <div key={index}>
-                <p>Câu {index + 1}: {result ? 'Đúng' : 'Sai'}</p>
-              </div>
-            ))}
-          </div>
-        )}
+          )}
+          {finalResult &&
+            <h2>Kết quả cuối cùng: {finalResult}</h2>}
+        </div>
       </div>
     </div>
   );
