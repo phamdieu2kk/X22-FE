@@ -5,11 +5,9 @@ const api = {
     login: apiElement('POST', '/user/login'),
     auth: apiElement('POST', '/user/auth'),
     topic: apiElement('GET', '/topic'),
-    getChallenges: apiElement('GET', '/challenge?topicId='),
-    getQuestions: apiElement('GET', '/questions/:topicId'),
+    getChallenges: (topicId) => apiElement('GET', `/challenge?topicId=${topicId}`),
+    getQuestions: (topicId) => apiElement('GET', `/questions/${topicId}`),
+    putUpdateAccountForm:  apiElement('PUT', '/user/update'),
 };
-
-
-
 
 export default api;
