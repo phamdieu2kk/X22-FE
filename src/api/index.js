@@ -6,8 +6,9 @@ const api = {
     auth: apiElement('POST', '/user/auth'),
     topic: apiElement('GET', '/topic'),
     getChallenges: (topicId) => apiElement('GET', `/challenge?topicId=${topicId}`),
-    getQuestions: (topicId) => apiElement('GET', `/questions/${topicId}`),
+    
     putUpdateAccountForm:  apiElement('PUT', '/user/update'),
+    getQuestion: apiElement('GET', '/question/create'),
 };
 
 export default api;
