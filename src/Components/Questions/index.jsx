@@ -1,7 +1,7 @@
 import "./style.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Breadcrumb, Flex, Row, Col, Button, message } from "antd";
+import { Breadcrumb, Flex, Row, Col, Button, message, Progress, Modal } from "antd"; // Thêm Modal từ antd
 import { Link } from "react-router-dom";
 
 const Questions = () => {
@@ -9,39 +9,45 @@ const Questions = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [timeLeft, setTimeLeft] = useState(180); // 3 minutes in seconds
   const [score, setScore] = useState(0); // Initial score
-  const [allQuestionsCompleted, setAllQuestionsCompleted] = useState(false);
   const [finalResult, setFinalResult] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // Track current question index
   const [completedQuestions, setCompletedQuestions] = useState(0); // Track number of completed questions
   const [correctAnswers, setCorrectAnswers] = useState(0); // Track number of correct answers
   const [selectedOptions, setSelectedOptions] = useState([]); // Track selected options for each question
+  const [showSubmitButton, setShowSubmitButton] = useState(false); // Track whether to show the submit button
+  const [isSubmitting, setIsSubmitting] = useState(false); // Track whether the user is submitting
+  // Thêm state mới để theo dõi trạng thái thời gian đã dừng lại
+  const [isTimePaused, setIsTimePaused] = useState(false);
+  const [totalTime, setTotalTime] = useState(0); // State để lưu trữ tổng thời gian đã dành cho trò chơi
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Here you can use a sample data instead of fetching from an API
+        // Sử dụng dữ liệu mẫu thay vì lấy từ API
         const sampleData = [
           {
-            id: 1,
-            question: "Câu hỏi 1: Có bao nhiêu cầu thủ được phép vào sân bóng đá??",
-            options: [
-              { id: "A", text: "11 cầu thủ", isCorrect: true },
-              { id: "B", text: "10 cầu thủ", isCorrect: false },
-              { id: "C", text: "9 cầu thủ", isCorrect: false },
-              { id: "D", text: "12 cầu thủ", isCorrect: false }
+            type: "single-choice",
+            question: "question 1625?",
+            challengeName: "C1",
+            answerList: [
+              { value: "A", isCorrect: true },
+              { value: "B", isCorrect: false },
+              { value: "C", isCorrect: false },
+              { value: "D", isCorrect: false }
             ]
           },
           {
-            id: 2,
-            question: "Câu hỏi 1: Có bao nhiêu cầu thủ được phép vào sân bóng đá??",
-            options: [
-              { id: "A", text: "11 cầu thủ", isCorrect: true },
-              { id: "B", text: "10 cầu thủ", isCorrect: false },
-              { id: "C", text: "9 cầu thủ", isCorrect: false },
-              { id: "D", text: "12 cầu thủ", isCorrect: false }
+            type: "multiple_choice",
+            question: "Which planet is known as the Red Planet?",
+            challengeName: "Space Trivia",
+            answerList: [
+              { value: "A", isCorrect: false },
+              { value: "B", isCorrect: false },
+              { value: "C", isCorrect: true },
+              { value: "D", isCorrect: false }
             ]
           },
-          // You can add more sample questions here
+          // Thêm các câu hỏi khác tại đây
         ];
         setQuestions(sampleData);
         setIsLoading(false);
@@ -49,10 +55,10 @@ const Questions = () => {
         console.error("Error fetching questions:", error);
       }
     };
-
+  
     fetchData();
   }, []);
-
+  
   useEffect(() => {
     const countdown = setInterval(() => {
       setTimeLeft((prevTime) => {
@@ -74,17 +80,17 @@ const Questions = () => {
   };
 
   const handleOptionSelect = (selectedOption, selectedQuestionId) => {
-    if (selectedOptions[currentQuestionIndex]) {
+    if (selectedOptions[currentQuestionIndex] !== undefined) {
       // If the question has already been answered, do nothing
       return;
     }
     const currentQuestion = questions[currentQuestionIndex];
-    const selectedAnswer = currentQuestion.options.find((option) => option.id === selectedOption);
+    const selectedAnswer = currentQuestion.answerList.find((answer) => answer.value === selectedOption);
     const updatedSelectedOptions = [...selectedOptions];
     updatedSelectedOptions[currentQuestionIndex] = selectedOption;
     setSelectedOptions(updatedSelectedOptions);
     if (selectedAnswer.isCorrect) {
-      setScore((prevScore) => prevScore + 10); // Thay đổi giá trị từ prevScore + 1 thành prevScore + 10
+      setScore((prevScore) => prevScore + 10); // Thay đổi giá trị prevScore + 10
       setCorrectAnswers((prevCount) => prevCount + 1); // Tăng số câu trả lời đúng lên 1
     }
     if (currentQuestionIndex < questions.length - 1) {
@@ -95,12 +101,53 @@ const Questions = () => {
     }
   };
 
-  const handleGameOver = () => {
+  const handleGameOver = () => { 
+    setIsTimePaused(true); // Tạm dừng thời gian
+    setTotalTime(180 - timeLeft); // Tính tổng thời gian đã dành cho trò chơi
+
     // Calculate final result
-    const result = `Số câu đúng: ${correctAnswers}/10`;
+    const result = `Số câu đúng: ${correctAnswers}/${questions.length}`;
     setFinalResult(result);
+    setShowSubmitButton(true); // Show the submit button
     message.success("Trò chơi kết thúc");
+  
+    // Update timeLeft to 0 when the last question is completed
+    setTimeLeft(0);
   };
+
+  const handleSubmission = () => {
+    setIsSubmitting(true); // Set isSubmitting to true
+    if (completedQuestions === questions.length) {
+      handleGameOver();
+    }
+  };
+
+  const handleConfirmation = () => {
+    setIsSubmitting(false); // Set isSubmitting to false
+    // Process submission and show the final result
+    const totalScore = correctAnswers * 10;
+    const result = `Số câu đúng: ${correctAnswers}/${questions.length}. Điểm của bạn: ${totalScore}`;
+    setFinalResult(result);
+    setShowSubmitButton(false); // Ẩn nút "Nộp bài" sau khi nộp thành công
+    // Hiển thị số điểm tổng kết và thời gian hoàn thành câu hỏi
+    const totalTime = 180 - timeLeft;
+    setTotalTime(totalTime);
+  };
+
+
+
+  const handleQuestionTypeSelect = (type) => {
+    // Xử lý khi chọn loại câu hỏi
+    setQuestionType(type);
+    setCurrentQuestionIndex(0); // Reset lại chỉ số câu hỏi khi chọn loại câu hỏi mới
+  };
+
+
+
+
+
+
+
 
   return (
     <div>
@@ -113,31 +160,57 @@ const Questions = () => {
             ]}
           />
         </div>
+  
+        <div className="question-types">
+            <Button onClick={() => handleQuestionTypeSelect("single-choice")}>Lựa chọn duy nhất</Button>
+            <Button onClick={() => handleQuestionTypeSelect("multiple-choice")}>Nhiều lựa chọn</Button>
+            <Button onClick={() => handleQuestionTypeSelect("arrange")}>Sắp xếp</Button>
+          </div>
+
 
         <div className="container-questions">
           <div className="info-question">
             <Flex>Số câu hỏi: {currentQuestionIndex + 1}/{questions.length}</Flex>
-            <Flex>Điểm: {score}</Flex>
-            <Flex>Thời gian: {formatTime(timeLeft)}</Flex>
+            {finalResult && <Flex>Điểm: {score}</Flex>} {/* Only display score when final result is shown */}
+            <Flex className="info-question-Progress" wrap="wrap" gap={30}>
+              <Progress strokeColor="#1890ff" type="circle" percent={formatTime(timeLeft)} size="small"  />
+            </Flex>
           </div>
           {questions[currentQuestionIndex] && (
             <div>
               <h2 className="question">{questions[currentQuestionIndex].question}</h2>
               <Row gutter={[16, 16]}>
-                {questions[currentQuestionIndex].options.map((option) => (
-                  <Col span={12} key={option.id}>
+                {questions[currentQuestionIndex].answerList.map((answer) => (
+                  <Col span={12} key={answer.value}>
                     <ul className="options">
-                      <li className="option" onClick={() => handleOptionSelect(option.id, questions[currentQuestionIndex].id)}>
-                        {`${option.id}. ${option.text}`}
+                      <li className="option" onClick={() => handleOptionSelect(answer.value)}>
+                        {`${answer.value}. ${answer.text}`}
                       </li>
                     </ul>
                   </Col>
                 ))}
               </Row>
+              {showSubmitButton && (
+                <div className="submit-button-container">
+                  <Button type="primary" onClick={handleSubmission}>Trả lời</Button>
+                  <Modal
+                    title="Xác nhận nộp bài"
+                    open={isSubmitting}
+                    onOk={handleConfirmation}
+                    onCancel={() => setIsSubmitting(false)}
+                  >
+                    <p>Bạn có chắc chắn muốn trả lời không?</p>
+                  </Modal>
+                </div>
+              )}
+              {!isSubmitting && finalResult && (
+                <div>
+                  <div>Kết quả cuối cùng: {finalResult}</div>
+                  <div>Tổng thời gian: {formatTime(totalTime)}</div>
+                </div>
+              )}
             </div>
           )}
-          {finalResult &&
-            <h2>Kết quả cuối cùng: {finalResult}</h2>}
         </div>
       </div>
     </div>

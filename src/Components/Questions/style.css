@@ -1,3 +1,11 @@
+
+.question-types{
+  margin-bottom: 20px;
+  justify-content: center;
+  display: flex;
+  
+}
+
 .container-questions {
     max-width: 800px;
     margin: 0 auto;
@@ -11,6 +19,8 @@
     justify-content: space-between; /* Các phần tử con sẽ căn giữa và ngang cách đều nhau */
     margin-bottom: 20px;
 }
+
+
 .question {
     padding: 50px;
     border: 1px solid #ccc;
@@ -33,4 +43,11 @@
   }
   .option:hover {
     background-color: hsl(62, 97%, 50%);
+  }
+
+
+  .submit-button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px auto;
   }
