@@ -1,7 +1,7 @@
 import "./style.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Breadcrumb } from "antd";
+import { Breadcrumb , Row, Col } from "antd";
 import { Link } from "react-router-dom";
 
 const Ranks = () => {
@@ -54,17 +54,7 @@ const Ranks = () => {
           <option value={5}>5</option>
         </select>
       </div>
-      {/* Hiển thị thông tin của top 10 người chơi */}
-      {/* <div className="rank-list">
-        {ranks.map((player, index) => (
-          <div key={index} className="player-info">
-            <span>{index + 1}</span>
-            <span>{player.name}</span>
-            <span>{player.score}</span>
-          </div>
-        ))}
-      </div> */}
-    </div>
+      </div>
   );
 };
 

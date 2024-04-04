@@ -29,6 +29,11 @@
     border-radius: 8px;
   }
   
+  .question {
+    display: flex;
+    justify-content: flex-end;
+  }
+
   .options {
     list-style-type: none;
     padding: 0;
@@ -50,4 +55,16 @@
     display: flex;
     justify-content: flex-end;
     margin: 10px auto;
+  }
+
+
+  .arrange-question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .button-row {
+    display: flex;
+    flex-wrap: wrap;
   }
