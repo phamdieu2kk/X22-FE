@@ -1,8 +1,8 @@
 import "./style.css";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Breadcrumb, Flex, Row, Col, Button, message, Progress, Modal } from "antd"; // Thêm Modal từ antd
 import { Link } from "react-router-dom";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const Questions = () => {
   const [questions, setQuestions] = useState([]);
@@ -13,40 +13,61 @@ const Questions = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // Track current question index
   const [completedQuestions, setCompletedQuestions] = useState(0); // Track number of completed questions
   const [correctAnswers, setCorrectAnswers] = useState(0); // Track number of correct answers
-  const [selectedOptions, setSelectedOptions] = useState([]); // Track selected options for each question
+  const [selectedOptions, setSelectedOptions] = useState(Array.from({ length: questions.length }, () => []));
   const [showSubmitButton, setShowSubmitButton] = useState(false); // Track whether to show the submit button
   const [isSubmitting, setIsSubmitting] = useState(false); // Track whether the user is submitting
   // Thêm state mới để theo dõi trạng thái thời gian đã dừng lại
   const [isTimePaused, setIsTimePaused] = useState(false);
   const [totalTime, setTotalTime] = useState(0); // State để lưu trữ tổng thời gian đã dành cho trò chơi
-
+  const [questionType, setQuestionType] = useState(null); // State để lưu trữ loại câu hỏi được chọn
+  const [selectedButtonType, setSelectedButtonType] = useState(null);
+  const [currentQuestionType, setCurrentQuestionType] = useState(null);
+  const [isAnswering, setIsAnswering] = useState(false);
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Sử dụng dữ liệu mẫu thay vì lấy từ API
         const sampleData = [
+         {
+  type: "single-choice",
+  question: "What is the capital of France?",
+  challengeName: "Geography Quiz",
+  answerList: [
+    { value: "A", text: "Berlin", isCorrect: false },
+    { value: "B", text: "Paris", isCorrect: true },
+    { value: "C", text: "Rome", isCorrect: false },
+    { value: "D", text: "London", isCorrect: false }
+  ]
+},
           {
-            type: "single-choice",
-            question: "question 1625?",
-            challengeName: "C1",
+            type: "multiple-choice",
+            question: "Which of the following are primary colors?",
+            challengeName: "Color Quiz",
             answerList: [
-              { value: "A", isCorrect: true },
-              { value: "B", isCorrect: false },
-              { value: "C", isCorrect: false },
-              { value: "D", isCorrect: false }
+              { value: "A", text: "Red", isCorrect: true },
+              { value: "B", text: "Green", isCorrect: false },
+              { value: "C", text: "Blue", isCorrect: true },
+              { value: "D", text: "Yellow", isCorrect: false },
+              { value: "E", text: "Green", isCorrect: false },
+              { value: "F", text: "Blue", isCorrect: false },
             ]
           },
-          {
-            type: "multiple_choice",
-            question: "Which planet is known as the Red Planet?",
-            challengeName: "Space Trivia",
-            answerList: [
-              { value: "A", isCorrect: false },
-              { value: "B", isCorrect: false },
-              { value: "C", isCorrect: true },
-              { value: "D", isCorrect: false }
-            ]
-          },
+       
+          // {
+          //   type: "arrange",
+          //   question: ""Sắp xếp các màu sau theo thứ tự của cầu vồng:",
+          //   challengeName: "Color Order Quiz",
+          //   elements: [
+          //     { text: "Red" },
+          //     { text: "Orange" },
+          //     { text: "Yellow" },
+          //     { text: "Green" },
+          //     { text: "Blue" },
+          //     { text: "Indigo" },
+          //     { text: "Violet" }
+          //   ]
+          // },
           // Thêm các câu hỏi khác tại đây
         ];
         setQuestions(sampleData);
@@ -60,18 +81,21 @@ const Questions = () => {
   }, []);
   
   useEffect(() => {
-    const countdown = setInterval(() => {
-      setTimeLeft((prevTime) => {
-        if (prevTime === 0) {
-          clearInterval(countdown);
-          return 0;
-        }
-        return prevTime - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(countdown);
-  }, []);
+    // Chỉ tính thời gian khi người dùng đã bắt đầu trả lời
+    if (isAnswering) {
+      const countdown = setInterval(() => {
+        setTimeLeft((prevTime) => {
+          if (prevTime === 0) {
+            clearInterval(countdown);
+            return 0;
+          }
+          return prevTime - 1;
+        });
+      }, 1000);
+  
+      return () => clearInterval(countdown);
+    }
+  }, [isAnswering]);
 
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
@@ -80,9 +104,12 @@ const Questions = () => {
   };
 
   const handleOptionSelect = (selectedOption, selectedQuestionId) => {
+    if (!isAnswering) {
+      setIsAnswering(true);
+    }
     if (selectedOptions[currentQuestionIndex] !== undefined) {
-      // If the question has already been answered, do nothing
-      return;
+
+// Nếu câu hỏi đã được trả lời rồi thì không làm gì cả  return;
     }
     const currentQuestion = questions[currentQuestionIndex];
     const selectedAnswer = currentQuestion.answerList.find((answer) => answer.value === selectedOption);
@@ -101,6 +128,7 @@ const Questions = () => {
     }
   };
 
+  // Hàm xử lý khi trò chơi kết thúc
   const handleGameOver = () => { 
     setIsTimePaused(true); // Tạm dừng thời gian
     setTotalTime(180 - timeLeft); // Tính tổng thời gian đã dành cho trò chơi
@@ -112,7 +140,7 @@ const Questions = () => {
     message.success("Trò chơi kết thúc");
   
     // Update timeLeft to 0 when the last question is completed
-    setTimeLeft(0);
+  
   };
 
   const handleSubmission = () => {
@@ -130,23 +158,123 @@ const Questions = () => {
     setFinalResult(result);
     setShowSubmitButton(false); // Ẩn nút "Nộp bài" sau khi nộp thành công
     // Hiển thị số điểm tổng kết và thời gian hoàn thành câu hỏi
-    const totalTime = 180 - timeLeft;
+    const totalTime = timeLeft;
     setTotalTime(totalTime);
   };
 
 
 
+  // Hàm xử lý sự kiện khi chọn loại câu hỏi
   const handleQuestionTypeSelect = (type) => {
-    // Xử lý khi chọn loại câu hỏi
     setQuestionType(type);
+    setSelectedButtonType(type);
     setCurrentQuestionIndex(0); // Reset lại chỉ số câu hỏi khi chọn loại câu hỏi mới
   };
+  const isButtonSelected = (type) => {
+  return selectedButtonType === type ? 'primary' : 'default';
+};
 
 
 
 
 
+ // Render câu hỏi tùy thuộc vào loại câu hỏi được chọn
+ const renderQuestionContent = () => {
+  if (questionType === "single-choice") {
+    return renderSingleChoiceQuestions();
+  } else if (questionType === "multiple-choice") {
+    return renderMultipleChoiceQuestions();
+  } else if (questionType === "arrange") {
+    return renderArrangeQuestions();
+  }
+  return null;
+}; 
 
+
+
+
+  // Render các nút lựa chọn loại câu hỏi với màu tương ứng
+  const renderQuestionTypeButtons = () => (
+    <div className="question-types">
+      <Button type={isButtonSelected("single-choice")} onClick={() => handleQuestionTypeSelect("single-choice")}>Lựa chọn duy nhất</Button>
+      <Button type={isButtonSelected("multiple-choice")} onClick={() => handleQuestionTypeSelect("multiple-choice")}>Nhiều lựa chọn</Button>
+      <Button type={isButtonSelected("arrange")} onClick={() => handleQuestionTypeSelect("arrange")}>Sắp xếp</Button>
+    </div>
+  );
+
+  
+  // Render câu hỏi loại lựa chọn duy nhất
+  const renderSingleChoiceQuestions = () => (
+    <div>
+      {questions[currentQuestionIndex] && (
+        <div>
+          <h2 className="question">{questions[currentQuestionIndex].question}</h2>
+          <Row gutter={[16, 16]}>
+            {questions[currentQuestionIndex].answerList.map((answer) => (
+              <Col span={12} key={answer.value}>
+                <ul className="options">
+                  <li className="option" onClick={() => handleOptionSelect(answer.value)}>
+                    {`${answer.value}. ${answer.text}`}
+                  </li>
+                </ul>
+              </Col>
+            ))}
+          </Row>
+          </div>
+      )}
+    </div>
+  );
+
+   // render câu hỏi loại nhiều lựa chọn 
+   const renderMultipleChoiceQuestions = () => (
+    <div>
+      {questions[currentQuestionIndex] && (
+        <div>
+          <h2 className="question">{questions[currentQuestionIndex].question}</h2>
+          <Row gutter={[16, 16]}>
+            {questions[currentQuestionIndex].answerList.map((answer) => (
+              <Col span={12} key={answer.value}>
+                <ul className="options">
+                  <li className="option" onClick={() => handleOptionSelect(answer.value)}>
+                    {`${answer.value}. ${answer.text}`}
+                  </li>
+                </ul>
+              </Col>
+            ))}
+          </Row>
+        </div>
+      )}
+    </div>
+  );
+
+ // Render câu hỏi loại sắp xếp
+const renderArrangeQuestions = () => {
+//   if (questionType === "arrange" && questions[currentQuestionIndex]) {
+//     const currentQuestion = questions[currentQuestionIndex];
+//     return (
+//       <div>
+      
+//         <div>
+//         <h2 className="question">
+//   <Button type={isButtonSelected("")}>Trả lời</Button>
+// </h2>
+          
+//           <Row gutter={[16, 16]}>
+//           <button  className="button-row" ></button>
+//           <Button type={isButtonSelected("")}></Button>
+//           <Button type={isButtonSelected("")}></Button>
+//           <Button type={isButtonSelected("")}></Button>
+//           <Button type={isButtonSelected("")}></Button>
+//           <Button type={isButtonSelected("")}></Button>
+//           <Button type={isButtonSelected("")}></Button>
+//           <Button type={isButtonSelected("")}></Button>
+     
+//               </Row>
+//               </div>
+//               </div>
+//     );
+//   }
+};
 
 
   return (
@@ -160,61 +288,38 @@ const Questions = () => {
             ]}
           />
         </div>
-  
-        <div className="question-types">
-            <Button onClick={() => handleQuestionTypeSelect("single-choice")}>Lựa chọn duy nhất</Button>
-            <Button onClick={() => handleQuestionTypeSelect("multiple-choice")}>Nhiều lựa chọn</Button>
-            <Button onClick={() => handleQuestionTypeSelect("arrange")}>Sắp xếp</Button>
-          </div>
-
-
+        {renderQuestionTypeButtons()}
         <div className="container-questions">
-          <div className="info-question">
-            <Flex>Số câu hỏi: {currentQuestionIndex + 1}/{questions.length}</Flex>
-            {finalResult && <Flex>Điểm: {score}</Flex>} {/* Only display score when final result is shown */}
-            <Flex className="info-question-Progress" wrap="wrap" gap={30}>
-              <Progress strokeColor="#1890ff" type="circle" percent={formatTime(timeLeft)} size="small"  />
-            </Flex>
-          </div>
-          {questions[currentQuestionIndex] && (
-            <div>
-              <h2 className="question">{questions[currentQuestionIndex].question}</h2>
-              <Row gutter={[16, 16]}>
-                {questions[currentQuestionIndex].answerList.map((answer) => (
-                  <Col span={12} key={answer.value}>
-                    <ul className="options">
-                      <li className="option" onClick={() => handleOptionSelect(answer.value)}>
-                        {`${answer.value}. ${answer.text}`}
-                      </li>
-                    </ul>
-                  </Col>
-                ))}
-              </Row>
-              {showSubmitButton && (
-                <div className="submit-button-container">
-                  <Button type="primary" onClick={handleSubmission}>Trả lời</Button>
-                  <Modal
-                    title="Xác nhận nộp bài"
-                    open={isSubmitting}
-                    onOk={handleConfirmation}
-                    onCancel={() => setIsSubmitting(false)}
-                  >
-                    <p>Bạn có chắc chắn muốn trả lời không?</p>
-                  </Modal>
-                </div>
-              )}
-              {!isSubmitting && finalResult && (
-                <div>
-                  <div>Kết quả cuối cùng: {finalResult}</div>
-                  <div>Tổng thời gian: {formatTime(totalTime)}</div>
-                </div>
-              )}
+        <div className="info-question">
+        <Flex>Số câu hỏi: {currentQuestionIndex + 1}/{questions.length}</Flex>
+        {finalResult && <Flex>Điểm: {score}</Flex>}
+        <Flex className="info-question-Progress" wrap="wrap" gap={30}>
+          <Progress strokeColor="#1890ff" type="circle" percent={formatTime(timeLeft)} size="small" />
+        </Flex>
+        </div>
+        {renderQuestionContent()}
+        {showSubmitButton && (
+            <div className="submit-button-container">
+              <Button type="primary" onClick={handleSubmission}>Trả lời</Button>
+              <Modal
+                title="Xác nhận nộp bài"
+                open={isSubmitting} // Sửa  visible thành open
+                onOk={handleConfirmation}
+                onCancel={() => setIsSubmitting(false)}
+              >
+                <p>Bạn có chắc chắn muốn trả lời không?</p>
+              </Modal>
             </div>
           )}
-        </div>
+          {!isSubmitting && finalResult && (
+            <div>
+              <div>Kết quả cuối cùng: {finalResult}</div>
+              </div>
+          )}
+           </div>
       </div>
     </div>
-  );
+    );
 };
 
 export default Questions;
