@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form, Input, Typography, Button, notification } from "antd";
 import UploadImage from "../Components/UploadImage";
 import api from "../api";
@@ -8,35 +8,55 @@ const { Title } = Typography;
 
 const UpdateAccountForm = () => {
   const [avatar, setAvatar] = useState();
-  const [notify] = notification.useNotification();
+  const [notify, notifyContextHolder] = notification.useNotification();
+  const [notificationMessage, setNotificationMessage] = useState(null);
+
+  useEffect(() => {
+    if (notificationMessage) {
+      notify[notificationMessage.type]({
+        message: notificationMessage.title,
+        description: notificationMessage.description,
+      });
+    }
+  }, [notificationMessage, notify]);
 
   const handleFinish = async (values) => {
     try {
-      // Gửi yêu cầu cập nhật thông tin cá nhân đến server
+     
       const response = await api.putUpdateAccountForm.invoke(values);
-
-      // Kiểm tra kết quả từ server
+  
+      
       if (response.success) {
-        // Cập nhật token mới vào ứng dụng
+       
         setAccessToken(`Bearer ${response.data.token}`);
-
-        // Hiển thị thông báo cập nhật thành công
-        notify.success({
-          message: "Thành công",
+  
+        // Cập nhật thông tin người dùng
+        
+        if (avatar) {
+          // Update avatar
+        }
+        
+        // Set notification message for success
+        setNotificationMessage({
+          type: "success",
+          title: "Thành công",
           description: "Cập nhật thông tin cá nhân thành công",
         });
       } else {
-        // Hiển thị thông báo lỗi nếu cập nhật không thành công
-        notify.error({
-          message: "Thất bại",
+        // Set notification message for error
+        setNotificationMessage({
+          type: "error",
+          title: "Thất bại",
           description: "Cập nhật thông tin cá nhân thất bại",
         });
       }
     } catch (error) {
       // Xử lý lỗi nếu có bất kỳ lỗi nào xảy ra trong quá trình gửi yêu cầu
       console.error("Error updating account:", error);
-      notify.error({
-        message: "Thất bại",
+      // Set notification message for error
+      setNotificationMessage({
+        type: "error",
+        title: "Thất bại",
         description: "Cập nhật thông tin cá nhân thất bại",
       });
     }
@@ -44,6 +64,7 @@ const UpdateAccountForm = () => {
 
   return (
     <Form className="updateAccountForm" layout="vertical" onFinish={handleFinish}>
+       {notifyContextHolder}
       <Title level={3}>Cập nhật tài khoản</Title>
       <Form.Item>
         <img src={avatar} alt="Avatar" />

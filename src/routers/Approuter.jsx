@@ -31,7 +31,7 @@ export default function AppRouter() {
       <Route path="/questions" element={<Questions />} />
       <Route path="/topic/:topicId/challenges" element={<Challenges />} />
       <Route path="/ranks" element={<Ranks />} />
-
+     
     </Routes>
   );
 }
