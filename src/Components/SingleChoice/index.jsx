@@ -1,5 +1,5 @@
 import "./style.css";
-import { Row, Col, Button } from 'antd';
+import { Row, Col, Button,Checkbox,Radio,Flex} from 'antd';
 import { useState } from 'react';
 
 const SingleChoice = ({ question, answerList, handleNextQuestion }) => {
@@ -42,19 +42,31 @@ const checkAnswer = (selectedOption) => {
   return (
     <div>
       <h2 className="question">{question}</h2>
-      <Row gutter={[16, 16]}>
-        {answerList.map((answer) => (
-          <Col span={12} key={answer.value}>
-            <div
-              className={`option-single-choice ${selectedAnswer === answer.value ? 'selected' : ''}`}
-              onClick={() => handleOptionClick(answer.value)}
-            >
-              {`${answer.value}. ${answer.text}`}
-            </div>
-          </Col>
-        ))}
-      </Row>
-      <Button type="primary" onClick={handleNextButtonClick}>Câu tiếp theo</Button>
+      
+      <div className="option-single-choice">
+  <Radio.Group className="options-single-choice">
+    <Row gutter={[16, 16]}>
+      <Col span={12}>
+        <Radio.Button value="a">Đáp án A</Radio.Button>
+      </Col>
+      <Col span={12}>
+        <Radio.Button value="b">Đáp án B</Radio.Button>
+      </Col>
+    </Row>
+    <Row gutter={[16, 16]}>
+      <Col span={12}>
+        <Radio.Button value="c">Đáp án C</Radio.Button>
+      </Col>
+      <Col span={12}>
+        <Radio.Button value="d">Đáp án D</Radio.Button>
+      </Col>
+    </Row>
+  </Radio.Group>
+</div>
+
+<div className="button-container">
+  <Button type="primary" onClick={handleNextButtonClick}>Câu tiếp theo</Button>
+</div>
     </div>
   );
 };
