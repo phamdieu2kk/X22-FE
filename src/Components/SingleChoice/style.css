@@ -2,21 +2,26 @@
   .options-single-choice {
     list-style-type: none;
     padding: 0;
+    justify-content: space-between;
+    margin-bottom: auto;
   }
-
   .option-single-choice {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Sắp xếp các đáp án theo chiều dọc */
+    justify-content: center; /* Căn giữa các đáp án theo chiều dọc */
   }
-  .option-single-choice:hover {
-    background-color: hwb(0 97% 3% / 0.933);
+  .options-single-choice .ant-radio-button-wrapper {
+    margin-bottom: 10px; 
+    width: 100%; 
+    text-align: center;
   }
-
-  .option-single-choice.selected {
-    background-color: hsl(57, 98%, 47%); /* Màu nền khi đáp án được chọn */
+  .options-single-choice .ant-radio-button-wrapper {
+    flex-grow: 2;
+    text-align: center; 
   }
   
+  .button-container {
+    display: flex;
+    justify-content: flex-end; 
+    margin-top: 20px;
+  }
