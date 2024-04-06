@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Row, Col } from "antd";
-
-const MultipleChoice = ({ questions, currentQuestionIndex, selectedAnswers, handleOptionSelect }) => {
+import { Row, Col, Button } from "antd";
+import "./style.css";
+const MultipleChoice = ({ questions, currentQuestionIndex, selectedAnswers, handleOptionSelect, handleNextQuestion }) => {
   const [selectedAnswerList, setSelectedAnswerList] = useState([]);
 
   const handleOptionClick = (value) => {
@@ -18,6 +18,13 @@ const MultipleChoice = ({ questions, currentQuestionIndex, selectedAnswers, hand
     if (updatedSelectedAnswers.length >= 2) {
       setSelectedAnswerList(updatedSelectedAnswers);
       handleOptionSelect(updatedSelectedAnswers); // Gọi hàm callback từ props
+    }
+  };
+
+  const handleNextButtonClick = () => {
+    if (selectedAnswerList.length >= 2) {
+      handleNextQuestion(); // Gọi hàm xử lý sự kiện chuyển sang câu hỏi tiếp theo từ component cha
+      setSelectedAnswerList([]); // Reset danh sách đáp án đã chọn
     }
   };
 
@@ -40,6 +47,7 @@ const MultipleChoice = ({ questions, currentQuestionIndex, selectedAnswers, hand
               </Col>
             ))}
           </Row>
+          <Button type="primary" onClick={handleNextButtonClick}>Câu tiếp theo</Button>
         </div>
       )}
     </div>

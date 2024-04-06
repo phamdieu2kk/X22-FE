@@ -1,95 +1,22 @@
 
-.question-types{
-    margin-bottom: 20px;
-    justify-content: center;
-    display: flex;
-    
+  .options-single-choice {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .option-single-choice {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 8px;
+  }
+  .option-single-choice:hover {
+    background-color: hwb(0 97% 3% / 0.933);
+  }
+
+  .option-single-choice.selected {
+    background-color: hsl(57, 98%, 47%); /* Màu nền khi đáp án được chọn */
   }
   
-  .container-questions {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-     
-    }
-    
-    .info-question {
-      display: flex;
-      justify-content: space-between; /* Các phần tử con sẽ căn giữa và ngang cách đều nhau */
-      margin-bottom: 20px;
-  }
-  
-  
-  .question {
-      padding: 50px;
-      border: 1px solid #ccc;
-      text-align: center;
-      margin-bottom: 40px;
-      border-radius: 8px;
-    }
-    
-    .question {
-     
-      justify-content: flex-end;
-  
-    }
-  
-    .options-single-choice {
-      list-style-type: none;
-      padding: 0;
-    }
-  
-    .option-single-choice {
-      margin-bottom: 10px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      border-radius: 8px;
-    }
-    .option-single-choice:hover {
-      background-color: hsl(62, 97%, 50%);
-    }
-  
-  
-    .options-multiple-choice {
-      list-style-type: none;
-      padding: 0;
-    }
-  
-    .option-multiple-choice {
-      margin-bottom: 10px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      border-radius: 8px;
-    }
-    .option-multiple-choice:hover {
-      background-color: hsl(30, 97%, 49%);
-    }
-  
-  
-  
-  
-    .submit-button-container {
-      display: flex;
-      justify-content: flex-end;
-      margin: 10px auto;
-    }
-  
-  
-    .arrange-question-container {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      
-    }
-    
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      
-    }
