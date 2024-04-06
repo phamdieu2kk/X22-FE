@@ -36,44 +36,8 @@
 
   }
 
-  .options-single-choice {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  .option-single-choice {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 8px;
-  }
-  .option-single-choice:hover {
-    background-color: hsl(62, 97%, 50%);
-  }
-
-
-  .options-multiple-choice {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  .option-multiple-choice {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 8px;
-  }
-  .option-multiple-choice:hover {
-    background-color: hsl(30, 97%, 49%);
-  }
-
-
-
-
+  
+  
   .submit-button-container {
     display: flex;
     justify-content: flex-end;

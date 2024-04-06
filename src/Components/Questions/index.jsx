@@ -21,6 +21,15 @@ const Questions = () => {
   const [selectedButtonType, setSelectedButtonType] = useState(null);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
 
+ 
+  const handleScoreUpdate = (score) => {
+    setTotalScore((prevTotalScore) => prevTotalScore + score);
+  };
+
+
+  const handleNextQuestion = () => {
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -93,12 +102,15 @@ const Questions = () => {
     }
   }, [isSubmitting]);
 
-  const handleOptionSelect = (option) => {
-    const currentQuestion = questions[currentQuestionIndex];
-    const selectedAnswer = currentQuestion.answerList.find((answer) => answer.value === option);
-    const isCorrect = selectedAnswer.isCorrect;
-
+  const handleOptionSelect = (option, isCorrect) => {
+    // Thực hiện xử lý khi nhận được đáp án từ component con
+    if (isCorrect) {
+      // Nếu đáp án đúng, cập nhật điểm số và số câu đúng
+      setScore((prevScore) => prevScore + 10);
+      setCorrectAnswers((prevCount) => prevCount + 1);
+    }
   
+    // Cập nhật selectedAnswers
     setSelectedAnswers((prevSelectedAnswers) => {
       if (prevSelectedAnswers.includes(option)) {
         return prevSelectedAnswers.filter((answer) => answer !== option);
@@ -106,16 +118,12 @@ const Questions = () => {
         return [...prevSelectedAnswers, option];
       }
     });
-
-    if (isCorrect) {
-      setScore((prevScore) => prevScore + 10);
-      setCorrectAnswers((prevCount) => prevCount + 1);
-    }
-
+  
+    // Kiểm tra nếu chưa phải câu hỏi cuối cùng thì chuyển sang câu hỏi tiếp theo
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
-      handleGameOver();
+      handleGameOver(); // Nếu là câu hỏi cuối cùng thì kết thúc trò chơi
     }
   };
 
@@ -128,9 +136,11 @@ const Questions = () => {
     message.success("Trò chơi kết thúc");
   };
 
-  const handleSubmission = () => {
-    setIsSubmitting(true);
-  };
+ const handleSubmission = () => {
+  setIsSubmitting(true);
+  // Hiển thị tổng điểm
+  console.log("Tổng điểm:", totalScore);
+};
 
   const handleConfirmation = () => {
     setIsSubmitting(false);
@@ -179,13 +189,22 @@ const Questions = () => {
 
   const renderSingleChoiceQuestions = () => {
     return (
-      <SingleChoice
+      <div>
+      {currentQuestionIndex < questions.length ? (
+        <SingleChoice
         question={questions[currentQuestionIndex].question}
         answerList={questions[currentQuestionIndex].answerList}
         handleOptionSelect={handleOptionSelect}
+        handleNextQuestion={handleNextQuestion}
+        handleScoreUpdate={handleScoreUpdate} // Truyền hàm callback để cập nhật điểm số
       />
-    );
-  };
+      ) : (
+        // Hiển thị nút "Nộp bài" khi đã hoàn thành tất cả câu hỏi
+        <Button type="primary" onClick={handleSubmission}>Nộp bài</Button>
+      )}
+    </div>
+  );
+};
 
   const renderMultipleChoiceQuestions = () => {
     return (
@@ -193,7 +212,7 @@ const Questions = () => {
         questions={questions}
         currentQuestionIndex={currentQuestionIndex}
         selectedAnswers={selectedAnswers}
-        handleOptionSelect={handleOptionSelect}
+        handleNextQuestion={handleNextQuestion}
       />
     );
   };
@@ -229,7 +248,7 @@ const Questions = () => {
           {renderQuestionContent()}
           {showSubmitButton && (
             <div className="submit-button-container">
-              <Button type="primary" onClick={handleSubmission}>Trả lời</Button>
+             
               <Modal
                 title="Xác nhận nộp bài"
                 visible={isSubmitting}
