@@ -33,7 +33,7 @@ const MultipleChoice = ({ questions, currentQuestionIndex, selectedAnswers, hand
       <h2 className="question">{questions[currentQuestionIndex].question}</h2>
       <div className="option-multiple-choice">
         <Checkbox.Group style={{ width: '100%' }}>
-        <Row gutter={[2, 2]}>
+        <Row gutter={[16, 16]}>
             <Col span={8}>
               <Checkbox value="A" onChange={handleOptionClick}>Đáp án A</Checkbox>
             </Col>
@@ -53,8 +53,7 @@ const MultipleChoice = ({ questions, currentQuestionIndex, selectedAnswers, hand
               <Checkbox value="F" onChange={handleOptionClick}>Đáp án F</Checkbox>
             </Col>
             
-            
-          </Row>
+            </Row>
         </Checkbox.Group>
       </div>
       <div className="button-multipleChoice">

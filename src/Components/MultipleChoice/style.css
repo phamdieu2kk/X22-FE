@@ -25,7 +25,7 @@
 /* Căn giữa các hàng của các checkbox */
 .option-multiple-choice .ant-row {
   align-items: center; 
-  flex-direction: column; /* Sắp xếp các đáp án theo chiều ngang */
+  flex-direction: row; /* Sắp xếp các đáp án theo chiều ngang */
 }
 
 
@@ -46,5 +46,5 @@
 .button-multipleChoice {
   display: flex;
   justify-content: flex-end; 
-
+  margin-top: 10px;
 }
