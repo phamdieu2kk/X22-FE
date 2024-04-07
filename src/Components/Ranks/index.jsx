@@ -32,10 +32,10 @@ const Ranks = () => {
       <div className="content">
         <div className="title-home">
           <Breadcrumb
-            items={[
-              { title: <Link to="/">Trang chủ</Link> },
-              { title: "Tất cả chủ đề" },
-            ]}
+            // items={[
+            //   { title: <Link to="/">Trang chủ</Link> },
+            //   { title: "Tất cả chủ đề" },
+            // ]}
           />
         </div>
       </div>

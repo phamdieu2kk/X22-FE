@@ -186,5 +186,16 @@ body {
   margin-top: 40px;
 }
 
+.updateAccountFormWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+ 
+}
 
+.updateAccountForm {
+  width:100%; /* Điều chỉnh kích thước của form */
+
+}
 

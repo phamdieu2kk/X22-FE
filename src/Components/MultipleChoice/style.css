@@ -1,0 +1,25 @@
+.answer-container {
+    display: flex;
+    justify-content: center;
+}
+
+.option-multiple-choice {
+    display: flex;
+    justify-content: center; /* căn giữa theo chiều ngang */
+    align-items: center; /* căn giữa theo chiều dọc */
+    flex-wrap: wrap; /* cho phép các ô đáp án xuống dòng khi không đủ chỗ */
+}
+
+.answer-option {
+    border: 1px solid #333;
+    width: 70%; 
+    padding: 10px; 
+    flex: 1; /* tự động mở rộng để đối xứng với khung câu hỏi */
+    margin: 10px; 
+}
+
+.answer-option.selected {
+    background-color: #FAEBD7; 
+}
+
+

@@ -5,7 +5,20 @@
   align-items: center;
   height: 80vh;
   width: auto;
+  
 }
+/* style.css */
+.question-header {
+  margin-bottom: 30px; /* Khoảng cách giữa câu hỏi và câu trả lời */
+  text-align: center; /* Căn giữa nội dung trong khung chứa câu hỏi */
+  justify-content: center;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  align-items: center;
+}
+
+
 
 .question-card {
   width: 60%; /* Định dạng chiều rộng của khung chứa nội dung */
@@ -13,6 +26,7 @@
   border: 1px solid #ccc;
   border-radius: 8px;
 }
+
 
 .question-content {
   margin-top: 20px;
@@ -23,14 +37,3 @@
   justify-content: flex-end;
   margin-top: 24px;
 }
-/* style.css */
-.question-header {
-  margin-bottom: 30px; /* Khoảng cách giữa câu hỏi và câu trả lời */
-  text-align: center; /* Căn giữa nội dung trong khung chứa câu hỏi */
-  
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-
-}
-

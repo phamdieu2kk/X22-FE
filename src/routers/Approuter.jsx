@@ -11,8 +11,7 @@ import Forgotpassword from "../Components/Forgotpassword";
 import Account from "../pages/Account";
 import UpdateAccountForm from "../pages/UpdateAccountForm";
 import ResetPassword from "../Components/ResetPassword";
-import TopicDetail from "../Components/TopicDetail";
-import Ranks from "../Components/ranks";
+// import Ranks from "../Components/ranks";
 
 export default function AppRouter() {
   return (
@@ -20,7 +19,7 @@ export default function AppRouter() {
       <Route path="/" element={<Home />} />
       <Route path="/instruction" element={<Instruction />} />
       <Route path="/topic" element={<Topic />} />
-      <Route path="/topic/:topicId/detail" element={<TopicDetail />} />
+     
       <Route path="/contact" element={<Contact />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
@@ -28,8 +27,8 @@ export default function AppRouter() {
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/account" element={<Account />} />
       <Route path="/updateaccountform" element={<UpdateAccountForm />} />
-      <Route path="/challenge/:challengId" element={<Questions />} />
-      <Route path="/ranks" element={<Ranks />} />
+      <Route path="/questions" element={<Questions />} />
+      {/* <Route path="/ranks" element={<Ranks />} /> */}
       <Route path="challenge" element={<Challenges/>}/>
      
     </Routes>
