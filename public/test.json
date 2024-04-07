@@ -1,0 +1,296 @@
+[
+  {
+    "_id": "660b1d6cdde56f5c9820422a",
+    "type": "multiple-choice",
+    "question": "A B F C E G D",
+    "answerList": [
+      {
+        "value": "A",
+        "index": 0,
+        "_id": "660b25b9dde56f5c98205d4f"
+      },
+      {
+        "value": "B",
+        "index": 1,
+        "_id": "660b25b9dde56f5c98205d50"
+      },
+      {
+        "value": "C",
+        "index": 2,
+        "_id": "660b25b9dde56f5c98205d51"
+      },
+      {
+        "value": "D",
+        "index": 3,
+        "_id": "660b25b9dde56f5c98205d52"
+      },
+      {
+        "value": "E",
+        "index": 4,
+        "_id": "660b25b9dde56f5c98205d53"
+      },
+      {
+        "value": "F",
+        "index": 5,
+        "_id": "660b25b9dde56f5c98205d54"
+      },
+      {
+        "value": "G",
+        "index": 6,
+        "_id": "660b25b9dde56f5c98205d55"
+      }
+    ],
+    "challengeId": {
+      "$oid": "660b1a35bead8eea4f5d0ec2"
+    },
+    "__v": 0
+  },
+  {
+    "_id": "660b1ff8dde56f5c98204342",
+    "type": "single-choice",
+    "question": "Con gì có cánh nhưng không bay?",
+    "answerList": [
+      {
+        "value": "Con kiến có cánh (:)",
+        "isCorrect": true,
+        "_id": "660b1ff8dde56f5c98204343"
+      },
+      {
+        "value": "Con chim",
+        "isCorrect": false,
+        "_id": "660b1ff8dde56f5c98204344"
+      },
+      {
+        "value": "Con muỗi",
+        "isCorrect": false,
+        "_id": "660b1ff8dde56f5c98204345"
+      },
+      {
+        "value": "Con chuột",
+        "isCorrect": false,
+        "_id": "660b1ff8dde56f5c98204346"
+      }
+    ],
+    "challengeId": {
+      "$oid": "660b1a35bead8eea4f5d0ec2"
+    },
+    "__v": 0
+  },
+  {
+    "_id": "660b202adde56f5c9820438e",
+    "type": "single-choice",
+    "question": "Loài động vật nào là loài động vật nhanh nhất trên trái đất?",
+    "answerList": [
+      {
+        "value": "Sư tử",
+        "isCorrect": true,
+        "_id": "660b202adde56f5c9820438f"
+      },
+      {
+        "value": "Gấu",
+        "isCorrect": false,
+        "_id": "660b202adde56f5c98204390"
+      },
+      {
+        "value": "Chó săn",
+        "isCorrect": false,
+        "_id": "660b202adde56f5c98204391"
+      },
+      {
+        "value": "Châu phi",
+        "isCorrect": false,
+        "_id": "660b202adde56f5c98204392"
+      }
+    ],
+    "challengeId": {
+      "$oid": "660b1a35bead8eea4f5d0ec2"
+    },
+    "__v": 0
+  },
+  {
+    "_id": "660b2079dde56f5c982043e8",
+    "type": "single-choice",
+    "question": "Con gì có thể nhảy cao hơn cả tòa nhà cao 25 tầng?",
+    "answerList": [
+      {
+        "value": "Con chuột",
+        "isCorrect": false,
+        "_id": "660b2079dde56f5c982043e9"
+      },
+      {
+        "value": "Con châu chấu",
+        "isCorrect": false,
+        "_id": "660b2079dde56f5c982043ea"
+      },
+      {
+        "value": "Con chim",
+        "isCorrect": true,
+        "_id": "660b2079dde56f5c982043eb"
+      },
+      {
+        "value": "Con trăn",
+        "isCorrect": false,
+        "_id": "660b2079dde56f5c982043ec"
+      }
+    ],
+    "challengeId": {
+      "$oid": "660b1a35bead8eea4f5d0ec2"
+    },
+    "__v": 0
+  },
+  {
+    "_id": "660b20e8dde56f5c98204508",
+    "type": "single-choice",
+    "question": "Loài động vật nào là loài có sừng dài nhất?",
+    "answerList": [
+      {
+        "value": "Sói",
+        "isCorrect": false,
+        "_id": "660b20e8dde56f5c98204509"
+      },
+      {
+        "value": "Nai",
+        "isCorrect": false,
+        "_id": "660b20e8dde56f5c9820450a"
+      },
+      {
+        "value": "Gaur",
+        "isCorrect": false,
+        "_id": "660b20e8dde56f5c9820450b"
+      },
+      {
+        "value": " Bò tót",
+        "isCorrect": true,
+        "_id": "660b20e8dde56f5c9820450c"
+      }
+    ],
+    "challengeId": {
+      "$oid": "660b1a35bead8eea4f5d0ec2"
+    },
+    "__v": 0
+  },
+  {
+    "_id": "660b2110dde56f5c98204526",
+    "type": "single-choice",
+    "question": "Con gì không thể sống trong nước và trên cạn?",
+    "answerList": [
+      {
+        "value": "Cá sấu",
+        "isCorrect": false,
+        "_id": "660b2110dde56f5c98204527"
+      },
+      {
+        "value": "Ếch",
+        "isCorrect": false,
+        "_id": "660b2110dde56f5c98204528"
+      },
+      {
+        "value": "Rùa",
+        "isCorrect": false,
+        "_id": "660b2110dde56f5c98204529"
+      },
+      {
+        "value": " Cá voi",
+        "isCorrect": true,
+        "_id": "660b2110dde56f5c9820452a"
+      }
+    ],
+    "challengeId": {
+      "$oid": "660b1a35bead8eea4f5d0ec2"
+    },
+    "__v": 0
+  },
+  {
+    "_id": "660b2134dde56f5c98204544",
+    "type": "single-choice",
+    "question": "Loài động vật nào có khả năng biến màu?",
+    "answerList": [
+      {
+        "value": "Cá heo",
+        "isCorrect": false,
+        "_id": "660b2134dde56f5c98204545"
+      },
+      {
+        "value": "Sứa",
+        "isCorrect": true,
+        "_id": "660b2134dde56f5c98204546"
+      },
+      {
+        "value": "Rắn",
+        "isCorrect": false,
+        "_id": "660b2134dde56f5c98204547"
+      },
+      {
+        "value": "Ếch",
+        "isCorrect": false,
+        "_id": "660b2134dde56f5c98204548"
+      }
+    ],
+    "challengeId": {
+      "$oid": "660b1a35bead8eea4f5d0ec2"
+    },
+    "__v": 0
+  },
+  {
+    "_id": "660b21d4dde56f5c9820456a",
+    "type": "single-choice",
+    "question": "Động vật nào được coi là \"người bạn đồng hành\" của con người?",
+    "answerList": [
+      {
+        "value": "Mèo",
+        "isCorrect": false,
+        "_id": "660b21d4dde56f5c9820456b"
+      },
+      {
+        "value": "Chó",
+        "isCorrect": true,
+        "_id": "660b21d4dde56f5c9820456c"
+      },
+      {
+        "value": "Chuột",
+        "isCorrect": false,
+        "_id": "660b21d4dde56f5c9820456d"
+      },
+      {
+        "value": "Hổ",
+        "isCorrect": false,
+        "_id": "660b21d4dde56f5c9820456e"
+      }
+    ],
+    "challengeId": {
+      "$oid": "660b1a35bead8eea4f5d0ec2"
+    },
+    "__v": 0
+  },
+  {
+    "_id": "660b21f4dde56f5c98204594",
+    "type": "single-choice",
+    "question": "Loài động vật nào được coi là \"vua của rừng\"?",
+    "answerList": [
+      {
+        "value": "Sư tử",
+        "isCorrect": false,
+        "_id": "660b21f4dde56f5c98204595"
+      },
+      {
+        "value": "Hổ",
+        "isCorrect": true,
+        "_id": "660b21f4dde56f5c98204596"
+      },
+      {
+        "value": "Báo",
+        "isCorrect": false,
+        "_id": "660b21f4dde56f5c98204597"
+      },
+      {
+        "value": "Gấu",
+        "isCorrect": false,
+        "_id": "660b21f4dde56f5c98204598"
+      }
+    ],
+    "challengeId": {
+      "$oid": "660b1a35bead8eea4f5d0ec2"
+    },
+    "__v": 0
+  }
+]
