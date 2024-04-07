@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SingleChoice from "../SingleChoice";
 import MultipleChoice from "../MultipleChoice";
+<<<<<<< HEAD
 import { Button , Flex, Modal} from "antd";
 import "./style.css";
 // import api from "../../api";
@@ -24,8 +25,31 @@ const Questions = () => {
             // } catch (error) {
             //     console.error("Error fetching questions:", error);
             // }
+=======
+import { Button } from "antd";
 
+const Questions = () => {
+    const [questions, setQuestions] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [answerList, setAnswerList] = useState([]);
+    useEffect(() => {
+        (async () => {
+            const res = await fetch("/test.json");
+            const data = await res.json();
+            console.log(data);
+            setQuestions(data);
+        })();
+    }, []);
 
+    const changeAnswer = (data) => {
+        console.log(data);
+>>>>>>> 8343536152c22f11c469319d9539085e93a36ea8
+
+        const newAnswerList = answerList.filter(
+            (answer) => answer.questionId !== data.questionId
+        );
+
+<<<<<<< HEAD
             const res = await fetch("/test.json");
             const data = await res.json();
             console.log(data);
@@ -71,12 +95,24 @@ const Questions = () => {
                 break;
             default:
                 break;
+=======
+        switch (data.type) {
+>>>>>>> 8343536152c22f11c469319d9539085e93a36ea8
             case "multiple-choice":
                 if (data.answers.length > 0) {
                     newAnswerList.push(data);
                 }
                 break;
+<<<<<<< HEAD
             }
+=======
+            case "single-choice":
+                newAnswerList.push(data);
+                break;
+            default:
+                break;
+        }
+>>>>>>> 8343536152c22f11c469319d9539085e93a36ea8
 
         setAnswerList(newAnswerList);
     };
@@ -85,12 +121,20 @@ const Questions = () => {
         console.log("answerList: ", answerList);
     }, [answerList]);
 
+<<<<<<< HEAD
 
     const handleNextButtonClick = () => {
         const answerCurrent = answerList.find((answer) => {
             return answer.questionId === questions[currentIndex]._id;
         });
 
+=======
+    const handleNextButtonClick = () => {
+        const answerCurrent = answerList.find((answer) => {
+            return answer.questionId === questions[currentIndex]._id;
+        });
+
+>>>>>>> 8343536152c22f11c469319d9539085e93a36ea8
         if (answerCurrent) {
             setCurrentIndex(currentIndex + 1);
         }
@@ -102,6 +146,7 @@ const Questions = () => {
     };
 
     return (
+<<<<<<< HEAD
         <div className="questions-container">
             {questions.length > 0 && currentIndex < questions.length && (
                 <div className="question-card">
@@ -118,6 +163,17 @@ const Questions = () => {
                         {/* Add question container here if needed */}
                     </div>
                     <div className="question-content">
+=======
+        <div>
+            {questions.length > 0 && (
+                <>
+                    <h6>
+                        {currentIndex + 1}/{questions.length}
+                    </h6>
+                    <h4>loại câu hỏi: {questions[currentIndex].type}</h4>
+                    <h2>câu hỏi: {questions[currentIndex].question}</h2>
+                    <div className="">
+>>>>>>> 8343536152c22f11c469319d9539085e93a36ea8
                         {questions[currentIndex].type === "single-choice" && (
                             <SingleChoice
                                 currentQuestion={questions[currentIndex]}
@@ -130,6 +186,7 @@ const Questions = () => {
                                 onChangeAnswer={changeAnswer}
                             />
                         )}
+<<<<<<< HEAD
                         {questions[currentIndex].type === "arrange" && <span>arrange</span>}
                     </div>
 
@@ -140,13 +197,41 @@ const Questions = () => {
                             </Button>
                         ) : (
                             <Button type="primary" onClick={handleSubmitButtonClick}>
+=======
+                        {questions[currentIndex].type === "arrange" && (
+                            <span>arrange</span>
+                        )}
+                    </div>
+
+                    <div
+                        className="button-multipleChoice"
+                        style={{ marginTop: "24px" }}
+                    >
+                        {currentIndex !== questions.length - 1 ? (
+                            <Button
+                                type="primary"
+                                onClick={handleNextButtonClick}
+                            >
+                                Câu tiếp theo
+                            </Button>
+                        ) : (
+                            <Button
+                                type="primary"
+                                onClick={handleSubmitButtonClick}
+                            >
+>>>>>>> 8343536152c22f11c469319d9539085e93a36ea8
                                 Nộp bài
                             </Button>
                         )}
                     </div>
+<<<<<<< HEAD
                 </div>
             )}
             
+=======
+                </>
+            )}
+>>>>>>> 8343536152c22f11c469319d9539085e93a36ea8
         </div>
     );
 };

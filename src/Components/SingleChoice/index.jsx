@@ -1,5 +1,9 @@
 import { Radio } from "antd";
+<<<<<<< HEAD
 import "./style.css";
+=======
+
+>>>>>>> 8343536152c22f11c469319d9539085e93a36ea8
 const SingleChoice = ({ currentQuestion, onChangeAnswer }) => {
     const handleChangeAnswer = (e) => {
         onChangeAnswer({
