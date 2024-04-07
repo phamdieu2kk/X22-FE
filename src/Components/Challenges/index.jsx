@@ -1,29 +1,29 @@
 import React from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Breadcrumb, Card, Button, Modal } from "antd";
 import api from "../../api";
 
 const Challenges = () => {
   const [challenges, setChallenges] = React.useState([]);
   const [selectedChallenge, setSelectedChallenge] = React.useState(null);
-  const params = useParams();
+  const location = useLocation();
   const queries = new URLSearchParams(location.search);
   React.useEffect(() => {
     const fetchChallenges = async () => {
       try {
-        const response = await api.getChallenges.invoke({
+        const response = await api.getChallengeList.invoke({
           queries: queries
         });
-
-        setChallenges(response.data.challenges);
+        setChallenges(response.data.challengeList);
       } catch (error) {
         console.error("Error fetching challenges:", error);
       }
     };
     fetchChallenges();
-  }, [params.topicId]);
+  }, []);
 
   const handleShowDetail = (challenge) => {
+    console.log(challenge);
     setSelectedChallenge(challenge);
   };
 
@@ -51,7 +51,8 @@ const Challenges = () => {
                 <img
                   alt="challenge"
                   src={challenge.img ?? "https://via.placeholder.com/300"}
-                />
+                  style={{ width: "100%", height: "auto" }}
+                  />
               }
             >
               <Card.Meta
@@ -70,10 +71,14 @@ const Challenges = () => {
         visible={!!selectedChallenge}
         onCancel={handleCloseDetail}
         footer={null}
-      >
+        >
         <p>Level: {selectedChallenge?.level}</p>
         <p>Point: {selectedChallenge?.point}</p>
-        {/* Display other details */}
+        <Button>
+          <Link to={`/challenge`} style={{ color: 'inherit', textDecoration: 'none' }}>
+             Play
+              </Link>
+              </Button>
       </Modal>
     </div>
   );

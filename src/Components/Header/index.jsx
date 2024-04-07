@@ -1,8 +1,9 @@
-import { Col, Flex, Menu, Row } from "antd";
-import React, { useContext } from "react";
+import { Col, Flex, Menu, Row,Dropdown } from "antd";
+import  { useContext, useEffect } from "react";
 import AuthContext from "../../context/AuthContext";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./style.css";
+import {UserOutlined} from "@ant-design/icons"
 
 const mainMenuItems = [
   {
@@ -39,6 +40,10 @@ const mainMenuItems = [
   },
 ];
 
+
+
+
+
 const mainAuthItems = [
   {
     label: (
@@ -58,27 +63,27 @@ const mainAuthItems = [
   },
 ];
 
-const accountMenuItems = [
-  {
-    label: (
-      <NavLink className="nav-link" to="/account">
-        Tài khoản
-      </NavLink>
-    ),
-    key: "account",
-  },
-  {
-    label: (
-      <NavLink className="nav-link" to="/login">
-        Đăng xuất
-      </NavLink>
-    ),
-    key: "logout",
-  },
-];
+
 
 export default function Header() {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser,setCurrentUser } = useContext(AuthContext);
+  
+const navigate = useNavigate();
+
+const handleLogout = () => {
+  localStorage.removeItem("AccessToken");
+  setCurrentUser({});
+  navigate("/");
+}
+
+const loggedMenu = (
+  <Menu>
+    <Menu.Item key="0" onClick={handleLogout}>
+      Logout
+    </Menu.Item>
+  </Menu>
+)
+
 
   return (
     <Row className="header">
@@ -102,7 +107,7 @@ export default function Header() {
       </Col>
 
       <Col sm={8}>
-        {currentUser ? (
+        {!currentUser ? (
           <Flex justify="flex-end">
             <Menu
               className="nav-menu nav-menu-right"
@@ -113,12 +118,10 @@ export default function Header() {
           </Flex>
         ) : (
           <Flex justify="flex-end">
-            <Menu
-              className="nav-menu nav-menu-right"
-              selectedKeys={["0"]}
-              mode="horizontal"
-              items={accountMenuItems}
-            />
+            <Dropdown overlay={loggedMenu} trigger={["hover"]}>
+              <UserOutlined></UserOutlined>
+            </Dropdown>
+            
           </Flex>
         )}
       </Col>

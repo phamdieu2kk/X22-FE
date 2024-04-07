@@ -1,66 +1,52 @@
-import { useState } from "react";
-import { Row, Col, Button, Checkbox } from "antd";
+import { Checkbox } from "antd";
 import "./style.css";
-
-const MultipleChoice = ({ questions, currentQuestionIndex, selectedAnswers, handleOptionSelect, handleNextQuestion }) => {
-  const [selectedAnswerList, setSelectedAnswerList] = useState([]);
-
-  const handleOptionClick = (value) => {
-    const isSelected = selectedAnswerList.includes(value);
-    let updatedSelectedAnswers = [];
-
-    if (isSelected) {
-      updatedSelectedAnswers = selectedAnswerList.filter((answer) => answer !== value);
-    } else {
-      updatedSelectedAnswers = [...selectedAnswerList, value];
-    }
-
-    if (updatedSelectedAnswers.length >= 2) {
-      setSelectedAnswerList(updatedSelectedAnswers);
-      handleOptionSelect(updatedSelectedAnswers);
-    }
-  };
-
-  const handleNextButtonClick = () => {
-    if (selectedAnswerList.length >= 2) {
-      handleNextQuestion();
-      setSelectedAnswerList([]);
-    }
-  };
-
-  return (
-    <div>
-      <h2 className="question">{questions[currentQuestionIndex].question}</h2>
-      <div className="option-multiple-choice">
-        <Checkbox.Group style={{ width: '100%' }}>
-        <Row gutter={[16, 16]}>
-            <Col span={8}>
-              <Checkbox value="A" onChange={handleOptionClick}>Đáp án A</Checkbox>
-            </Col>
-            <Col span={8}>
-              <Checkbox value="B" onChange={handleOptionClick}>Đáp án B</Checkbox>
-            </Col>
-            <Col span={8}>
-              <Checkbox value="C" onChange={handleOptionClick}>Đáp án C</Checkbox>
-            </Col>
-            <Col span={8}>
-              <Checkbox value="D" onChange={handleOptionClick}>Đáp án D</Checkbox>
-            </Col>
-            <Col span={8}>
-              <Checkbox value="E" onChange={handleOptionClick}>Đáp án E</Checkbox>
-            </Col>
-            <Col span={8}>
-              <Checkbox value="F" onChange={handleOptionClick}>Đáp án F</Checkbox>
-            </Col>
-            
-            </Row>
-        </Checkbox.Group>
-      </div>
-      <div className="button-multipleChoice">
-        <Button type="primary" onClick={handleNextButtonClick}>Câu tiếp theo</Button>
-      </div>
-    </div>
-  );
+const MultipleChoice = ({ currentQuestion, onChangeAnswer }) => {
+    const handleChangeAnswer = (values) => {
+        onChangeAnswer({
+            questionId: currentQuestion._id,
+            answers: values,
+            type: currentQuestion.type,
+        });
+    };
+    return (
+        <div className="option-multiple-choice">
+            <Checkbox.Group
+                style={{ width: "100%" }}
+                onChange={handleChangeAnswer}
+            >
+                <div
+                    className=""
+                    style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        flexWrap: "wrap",
+                        gap: "2rem",
+                        width: "100%",
+                    }}
+                >
+                    {currentQuestion.answerList.map((answer) => {
+                        return (
+                            <div
+                                className=""
+                                key={answer._id}
+                                style={{
+                                    border: "1px solid #333",
+                                    width: "calc(50% - 1rem)",
+                                }}
+                            >
+                                <Checkbox
+                                    value={answer._id}
+                                    style={{ width: "100%" }}
+                                >
+                                    {answer.value}
+                                </Checkbox>
+                            </div>
+                        );
+                    })}
+                </div>
+            </Checkbox.Group>
+        </div>
+    );
 };
 
 export default MultipleChoice;

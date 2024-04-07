@@ -1,27 +1,16 @@
+/* style.css */
+.option-single-choice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Đảm bảo chiếm toàn bộ chiều cao của cha */
+}
 
-  .options-single-choice {
-    list-style-type: none;
-    padding: 0;
-    justify-content: space-between;
-    margin-bottom: auto;
-  }
-  .option-single-choice {
-    display: flex;
-    flex-direction: column; /* Sắp xếp các đáp án theo chiều dọc */
-    justify-content: center; /* Căn giữa các đáp án theo chiều dọc */
-  }
-  .options-single-choice .ant-radio-button-wrapper {
-    margin-bottom: 10px; 
-    width: 100%; 
-    text-align: center;
-  }
-  .options-single-choice .ant-radio-button-wrapper {
-    flex-grow: 2;
-    text-align: center; 
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: flex-end; 
-    margin-top: 20px;
-  }
+/* Đảm bảo nội dung bên trong được căn giữa */
+.option-single-choice .ant-radio-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

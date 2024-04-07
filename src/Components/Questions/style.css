@@ -1,59 +1,36 @@
-
-.question-types{
-  margin-bottom: 20px;
-  justify-content: center;
+/* style.css */
+.questions-container {
   display: flex;
-  
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: auto;
 }
 
-.container-questions {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   
-  }
-  
-  .info-question {
-    display: flex;
-    justify-content: space-between; /* Các phần tử con sẽ căn giữa và ngang cách đều nhau */
-    margin-bottom: 20px;
+.question-card {
+  width: 60%; /* Định dạng chiều rộng của khung chứa nội dung */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
+.question-content {
+  margin-top: 20px;
+}
 
-.question {
-    padding: 50px;
-    border: 1px solid #ccc;
-    text-align: center;
-    margin-bottom: 40px;
-    border-radius: 8px;
-  }
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+/* style.css */
+.question-header {
+  margin-bottom: 30px; /* Khoảng cách giữa câu hỏi và câu trả lời */
+  text-align: center; /* Căn giữa nội dung trong khung chứa câu hỏi */
   
-  .question {
-   
-    justify-content: flex-end;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
 
-  }
+}
 
-  
-  
-  .submit-button-container {
-    display: flex;
-    justify-content: flex-end;
-    margin: 10px auto;
-  }
-
-
-  .arrange-question-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    
-  }
-  
-  .button-row {
-    display: flex;
-    flex-wrap: wrap;
-    
-  }

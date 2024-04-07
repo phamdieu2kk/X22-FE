@@ -28,9 +28,9 @@ export default function AppRouter() {
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/account" element={<Account />} />
       <Route path="/updateaccountform" element={<UpdateAccountForm />} />
-      <Route path="/questions" element={<Questions />} />
-      <Route path="/topic/:topicId/challenges" element={<Challenges />} />
+      <Route path="/challenge/:challengId" element={<Questions />} />
       <Route path="/ranks" element={<Ranks />} />
+      <Route path="challenge" element={<Challenges/>}/>
      
     </Routes>
   );
